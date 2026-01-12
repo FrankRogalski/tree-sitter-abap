@@ -1444,6 +1444,40 @@
           "value": ":"
         },
         {
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "types_structure_entry"
+              },
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "types_structure_entry"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "types_structure_entry": {
+      "type": "SEQ",
+      "members": [
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
@@ -1516,10 +1550,6 @@
           },
           "named": true,
           "value": "strucure_name"
-        },
-        {
-          "type": "STRING",
-          "value": "."
         }
       ]
     },

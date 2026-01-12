@@ -188,6 +188,12 @@ module.exports = {
     seq(
       kw("types"),
       ":",
+      repeat1(choice($.types_structure_entry, seq(",", $.types_structure_entry))),
+      "."
+    ),
+
+  types_structure_entry: $ =>
+    seq(
       kw("begin"),
       kw("of"),
       alias($.name, $.strucure_name),
@@ -195,8 +201,7 @@ module.exports = {
       alias(repeat1($.structure_component), $.structure_components),
       kw("end"),
       kw("of"),
-      alias($.name, $.strucure_name),
-      "."
+      alias($.name, $.strucure_name)
     ),
 
   field_symbol_declaration: $ =>
