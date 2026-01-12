@@ -55,6 +55,7 @@ module.exports = {
         $.exit_statement,
         $.continue_statement,
         $.report_statement,
+        $.program_statement,
         $.if_statement,
         $.return_statement,
         $.check_statement,
@@ -366,6 +367,8 @@ module.exports = {
     return_statement: $ => seq(kw("return"), "."),
 
     report_statement: $ => seq(kw("report"), $.name, "."),
+
+    program_statement: $ => seq(kw("program"), $.name, "."),
 
     if_statement: $ =>
       seq(

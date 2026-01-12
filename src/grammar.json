@@ -3602,6 +3602,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "program_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "if_statement"
         },
         {
@@ -5908,6 +5912,29 @@
           },
           "named": false,
           "value": "report"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "name"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "program_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "program",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "program"
         },
         {
           "type": "SYMBOL",
