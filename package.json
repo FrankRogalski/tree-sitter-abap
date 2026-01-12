@@ -5,9 +5,10 @@
   "main": "index.js",
   "types": "bindings/node",
   "scripts": {
-    "test": "tree-sitter generate && tree-sitter test",
+    "build:grammar": "node scripts/build_grammar.js",
+    "test": "npm run build:grammar && tree-sitter generate && tree-sitter test",
     "install": "node-gyp-build",
-    "build": "tree-sitter generate && tree-sitter build",
+    "build": "npm run build:grammar && tree-sitter generate && tree-sitter build",
     "prebuildify": "prebuildify --napi --strip"
   },
   "author": "",
