@@ -570,6 +570,10 @@
           "named": true
         },
         {
+          "type": "form_statement",
+          "named": true
+        },
+        {
           "type": "function_implementation",
           "named": true
         },
@@ -1408,6 +1412,176 @@
     }
   },
   {
+    "type": "form_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "append_statement",
+          "named": true
+        },
+        {
+          "type": "append_statement_obsolete",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call_function",
+          "named": true
+        },
+        {
+          "type": "call_method",
+          "named": true
+        },
+        {
+          "type": "call_method_instance",
+          "named": true
+        },
+        {
+          "type": "call_method_static",
+          "named": true
+        },
+        {
+          "type": "chained_constants_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_field_symbol_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_types_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_write_statement",
+          "named": true
+        },
+        {
+          "type": "check_statement",
+          "named": true
+        },
+        {
+          "type": "clear_statement",
+          "named": true
+        },
+        {
+          "type": "constants_declaration",
+          "named": true
+        },
+        {
+          "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "create_object_statement",
+          "named": true
+        },
+        {
+          "type": "exit_statement",
+          "named": true
+        },
+        {
+          "type": "field_symbol_declaration",
+          "named": true
+        },
+        {
+          "type": "form_statement",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "include_statement",
+          "named": true
+        },
+        {
+          "type": "loop_statement",
+          "named": true
+        },
+        {
+          "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "raise_exception_statement",
+          "named": true
+        },
+        {
+          "type": "raise_statement",
+          "named": true
+        },
+        {
+          "type": "read_table_statement",
+          "named": true
+        },
+        {
+          "type": "report_statement",
+          "named": true
+        },
+        {
+          "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "select_loop_statement",
+          "named": true
+        },
+        {
+          "type": "select_statement",
+          "named": true
+        },
+        {
+          "type": "try_catch_statement",
+          "named": true
+        },
+        {
+          "type": "types_declaration",
+          "named": true
+        },
+        {
+          "type": "types_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "write_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "free_key",
     "named": true,
     "fields": {},
@@ -1519,6 +1693,10 @@
         },
         {
           "type": "field_symbol_declaration",
+          "named": true
+        },
+        {
+          "type": "form_statement",
           "named": true
         },
         {
@@ -1718,6 +1896,10 @@
         },
         {
           "type": "field_symbol_declaration",
+          "named": true
+        },
+        {
+          "type": "form_statement",
           "named": true
         },
         {
@@ -2084,6 +2266,10 @@
           "named": true
         },
         {
+          "type": "form_statement",
+          "named": true
+        },
+        {
           "type": "function_implementation",
           "named": true
         },
@@ -2294,6 +2480,10 @@
         },
         {
           "type": "field_symbol_declaration",
+          "named": true
+        },
+        {
+          "type": "form_statement",
           "named": true
         },
         {
@@ -2785,6 +2975,10 @@
           "named": true
         },
         {
+          "type": "form_statement",
+          "named": true
+        },
+        {
           "type": "function_implementation",
           "named": true
         },
@@ -3217,6 +3411,10 @@
         },
         {
           "type": "field_symbol_declaration",
+          "named": true
+        },
+        {
+          "type": "form_statement",
           "named": true
         },
         {
@@ -4192,6 +4390,10 @@
           "named": true
         },
         {
+          "type": "form_statement",
+          "named": true
+        },
+        {
           "type": "function_implementation",
           "named": true
         },
@@ -4737,6 +4939,10 @@
     "named": false
   },
   {
+    "type": "endform",
+    "named": false
+  },
+  {
     "type": "endfunction",
     "named": false
   },
@@ -4814,6 +5020,10 @@
   },
   {
     "type": "for",
+    "named": false
+  },
+  {
+    "type": "form",
     "named": false
   },
   {

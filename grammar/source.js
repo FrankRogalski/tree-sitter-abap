@@ -64,6 +64,7 @@ module.exports = {
         $.include_statement,
         $.macro_include,
         $.raise_statement,
+        $.form_statement,
         $.append_statement_obsolete
       ),
 
@@ -778,6 +779,16 @@ module.exports = {
         ".",
         repeat($._implementation_statement),
         kw("endfunction"),
+        "."
+      ),
+
+    form_statement: $ =>
+      seq(
+        kw("form"),
+        field("name", $.name),
+        ".",
+        repeat($._implementation_statement),
+        kw("endform"),
         "."
       ),
 
