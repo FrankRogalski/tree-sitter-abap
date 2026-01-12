@@ -1118,21 +1118,26 @@ module.exports = {
         kw("call"),
         kw("function"),
         field("name", $.character_literal),
-        field("parameters", optional($._function_parameter_list)),
-        field("exceptions", optional($.exception_list)),
+        repeat(
+          choice(
+            $.function_parameter_clause,
+            $.exception_list,
+            $.parameter_table_clause,
+            $.exception_table_clause
+          )
+        ),
         "."
       ),
 
-    _function_parameter_list: $ =>
-      repeat1(
-        choice(
-          seq(
-            kw("exporting"),
-            alias($.parameter_list_exporting, $.parameter_list)
-          ),
-          seq(kw("importing"), $.parameter_list),
-          seq(kw("changing"), $.parameter_list)
-        )
+    parameter_table_clause: $ => seq(kw("parameter-table"), $._data_object),
+
+    exception_table_clause: $ => seq(kw("exception-table"), $._data_object),
+
+    function_parameter_clause: $ =>
+      choice(
+        seq(kw("exporting"), alias($.parameter_list_exporting, $.parameter_list)),
+        seq(kw("importing"), $.parameter_list),
+        seq(kw("changing"), $.parameter_list)
       ),
 
     exception_list: $ => seq(kw("exceptions"), repeat1($.return_code_binding)),

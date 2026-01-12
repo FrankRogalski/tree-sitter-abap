@@ -13,44 +13,33 @@ module.exports = {
       ),
 
     select_statement_body: $ =>
-      seq(kw("select"), choice($.select_single, $.select_other)),
+      seq(kw("select"), repeat1($.select_clause)),
 
-    select_single: $ =>
-      seq(
-        kw("single"),
-        optional(seq(kw("for"), kw("update"))),
-        optional($.sql_field_list),
+    select_clause: $ =>
+      choice(
+        $.select_single_clause,
+        $.select_distinct_clause,
+        $.select_for_update_clause,
+        $.sql_field_list,
         $.sql_from,
-        optional($.sql_for_all_entries),
-        optional($.sql_where),
-        optional($.sql_group_by),
-        optional($.sql_having),
-        optional($.sql_order_by),
-        optional($.sql_into),
-        optional($.sql_up_to),
-        optional($.sql_offset),
-        optional($.sql_client),
-        optional($.sql_bypassing_buffer),
-        optional($.sql_package_size)
+        $.sql_for_all_entries,
+        $.sql_where,
+        $.sql_group_by,
+        $.sql_having,
+        $.sql_order_by,
+        $.sql_into,
+        $.sql_up_to,
+        $.sql_offset,
+        $.sql_client,
+        $.sql_bypassing_buffer,
+        $.sql_package_size
       ),
 
-    select_other: $ =>
-      seq(
-        optional(kw("distinct")),
-        optional($.sql_field_list),
-        $.sql_from,
-        optional($.sql_for_all_entries),
-        optional($.sql_where),
-        optional($.sql_group_by),
-        optional($.sql_having),
-        optional($.sql_order_by),
-        optional($.sql_into),
-        optional($.sql_up_to),
-        optional($.sql_offset),
-        optional($.sql_client),
-        optional($.sql_bypassing_buffer),
-        optional($.sql_package_size)
-      ),
+    select_single_clause: $ => kw("single"),
+
+    select_distinct_clause: $ => kw("distinct"),
+
+    select_for_update_clause: $ => seq(kw("for"), kw("update")),
 
     sql_field_list: $ =>
       choice("*", seq($.sql_field, repeat(seq(",", $.sql_field)))),
