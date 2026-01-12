@@ -152,6 +152,7 @@
   {
     "type": "bol_comment",
     "named": true,
+    "extra": true,
     "fields": {}
   },
   {
@@ -581,7 +582,11 @@
           "named": true
         },
         {
-          "type": "select_statement_obsolete",
+          "type": "select_loop_statement",
+          "named": true
+        },
+        {
+          "type": "select_statement",
           "named": true
         },
         {
@@ -1202,6 +1207,7 @@
   {
     "type": "eol_comment",
     "named": true,
+    "extra": true,
     "fields": {}
   },
   {
@@ -1263,21 +1269,6 @@
           "type": "generic_typing",
           "named": true
         },
-        {
-          "type": "name",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "for_all_entries",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
         {
           "type": "name",
           "named": true
@@ -1424,7 +1415,11 @@
           "named": true
         },
         {
-          "type": "select_statement_obsolete",
+          "type": "select_loop_statement",
+          "named": true
+        },
+        {
+          "type": "select_statement",
           "named": true
         },
         {
@@ -1611,7 +1606,11 @@
           "named": true
         },
         {
-          "type": "select_statement_obsolete",
+          "type": "select_loop_statement",
+          "named": true
+        },
+        {
+          "type": "select_statement",
           "named": true
         },
         {
@@ -1890,7 +1889,11 @@
           "named": true
         },
         {
-          "type": "select_statement_obsolete",
+          "type": "select_loop_statement",
+          "named": true
+        },
+        {
+          "type": "select_statement",
           "named": true
         },
         {
@@ -2051,7 +2054,11 @@
           "named": true
         },
         {
-          "type": "select_statement_obsolete",
+          "type": "select_loop_statement",
+          "named": true
+        },
+        {
+          "type": "select_statement",
           "named": true
         },
         {
@@ -2372,6 +2379,7 @@
   {
     "type": "program",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -2506,7 +2514,11 @@
           "named": true
         },
         {
-          "type": "select_statement_obsolete",
+          "type": "select_loop_statement",
+          "named": true
+        },
+        {
+          "type": "select_statement",
           "named": true
         },
         {
@@ -2734,16 +2746,617 @@
     }
   },
   {
-    "type": "select_list",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "select_statement_obsolete",
+    "type": "select_loop_statement",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "append_statement",
+          "named": true
+        },
+        {
+          "type": "append_statement_obsolete",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "call_function",
+          "named": true
+        },
+        {
+          "type": "call_method",
+          "named": true
+        },
+        {
+          "type": "call_method_instance",
+          "named": true
+        },
+        {
+          "type": "call_method_static",
+          "named": true
+        },
+        {
+          "type": "chained_field_symbol_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_write_statement",
+          "named": true
+        },
+        {
+          "type": "check_statement",
+          "named": true
+        },
+        {
+          "type": "clear_statement",
+          "named": true
+        },
+        {
+          "type": "continue_statement",
+          "named": true
+        },
+        {
+          "type": "create_object_statement",
+          "named": true
+        },
+        {
+          "type": "exit_statement",
+          "named": true
+        },
+        {
+          "type": "field_symbol_declaration",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "include_statement",
+          "named": true
+        },
+        {
+          "type": "loop_statement",
+          "named": true
+        },
+        {
+          "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "raise_exception_statement",
+          "named": true
+        },
+        {
+          "type": "raise_statement",
+          "named": true
+        },
+        {
+          "type": "read_table_statement",
+          "named": true
+        },
+        {
+          "type": "report_statement",
+          "named": true
+        },
+        {
+          "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "select_loop_statement",
+          "named": true
+        },
+        {
+          "type": "select_statement",
+          "named": true
+        },
+        {
+          "type": "select_statement_body",
+          "named": true
+        },
+        {
+          "type": "try_catch_statement",
+          "named": true
+        },
+        {
+          "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "write_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select_other",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sql_bypassing_buffer",
+          "named": true
+        },
+        {
+          "type": "sql_client",
+          "named": true
+        },
+        {
+          "type": "sql_field_list",
+          "named": true
+        },
+        {
+          "type": "sql_for_all_entries",
+          "named": true
+        },
+        {
+          "type": "sql_from",
+          "named": true
+        },
+        {
+          "type": "sql_group_by",
+          "named": true
+        },
+        {
+          "type": "sql_having",
+          "named": true
+        },
+        {
+          "type": "sql_into",
+          "named": true
+        },
+        {
+          "type": "sql_offset",
+          "named": true
+        },
+        {
+          "type": "sql_order_by",
+          "named": true
+        },
+        {
+          "type": "sql_package_size",
+          "named": true
+        },
+        {
+          "type": "sql_up_to",
+          "named": true
+        },
+        {
+          "type": "sql_where",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select_single",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sql_bypassing_buffer",
+          "named": true
+        },
+        {
+          "type": "sql_client",
+          "named": true
+        },
+        {
+          "type": "sql_field_list",
+          "named": true
+        },
+        {
+          "type": "sql_for_all_entries",
+          "named": true
+        },
+        {
+          "type": "sql_from",
+          "named": true
+        },
+        {
+          "type": "sql_group_by",
+          "named": true
+        },
+        {
+          "type": "sql_having",
+          "named": true
+        },
+        {
+          "type": "sql_into",
+          "named": true
+        },
+        {
+          "type": "sql_offset",
+          "named": true
+        },
+        {
+          "type": "sql_order_by",
+          "named": true
+        },
+        {
+          "type": "sql_package_size",
+          "named": true
+        },
+        {
+          "type": "sql_up_to",
+          "named": true
+        },
+        {
+          "type": "sql_where",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "select_statement_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select_statement_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "select_other",
+          "named": true
+        },
+        {
+          "type": "select_single",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_aggregation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "sql_field_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_bypassing_buffer",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sql_client",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sql_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "sql_field_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_field_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "sql_aggregation",
+          "named": true
+        },
+        {
+          "type": "sql_path",
+          "named": true
+        },
+        {
+          "type": "table_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_field_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "sql_field",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_for_all_entries",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_from",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sql_from_source",
+          "named": true
+        },
+        {
+          "type": "sql_join",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_from_source",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "sql_path",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_group_by",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "sql_group_by_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_group_by_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sql_field_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_having",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comparison_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_into",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "sql_into_list",
+          "named": true
+        },
+        {
+          "type": "sql_into_structure",
+          "named": true
+        },
+        {
+          "type": "sql_into_table",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_into_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_into_structure",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_into_table",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_join",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comparison_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "sql_from_source",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_offset",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -2759,15 +3372,7 @@
           "named": true
         },
         {
-          "type": "data_source",
-          "named": true
-        },
-        {
           "type": "field_symbol_name",
-          "named": true
-        },
-        {
-          "type": "for_all_entries",
           "named": true
         },
         {
@@ -2779,19 +3384,164 @@
           "named": true
         },
         {
-          "type": "select_list",
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_order_by",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "sql_order_by_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_order_by_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "sql_field_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_order_by_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "sql_order_by_item",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_package_size",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
           "named": true
         },
         {
           "type": "structured_data_object",
           "named": true
-        },
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_path",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
         {
-          "type": "target",
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_up_to",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
           "named": true
         },
         {
-          "type": "where",
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sql_where",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comparison_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         }
       ]
@@ -2906,21 +3656,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "target",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "name",
-          "named": true
-        }
-      ]
     }
   },
   {
@@ -3060,7 +3795,11 @@
           "named": true
         },
         {
-          "type": "select_statement_obsolete",
+          "type": "select_loop_statement",
+          "named": true
+        },
+        {
+          "type": "select_statement",
           "named": true
         },
         {
@@ -3174,25 +3913,6 @@
     }
   },
   {
-    "type": "where",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "comparison_expression",
-          "named": true
-        },
-        {
-          "type": "name",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "write_statement",
     "named": true,
     "fields": {},
@@ -3230,14 +3950,6 @@
         }
       ]
     }
-  },
-  {
-    "type": " ( ",
-    "named": false
-  },
-  {
-    "type": " ) ",
-    "named": false
   },
   {
     "type": "!",
@@ -3344,6 +4056,14 @@
     "named": false
   },
   {
+    "type": "as",
+    "named": false
+  },
+  {
+    "type": "asc",
+    "named": false
+  },
+  {
     "type": "assigning",
     "named": false
   },
@@ -3352,11 +4072,27 @@
     "named": false
   },
   {
+    "type": "avg",
+    "named": false
+  },
+  {
     "type": "begin",
     "named": false
   },
   {
     "type": "binary",
+    "named": false
+  },
+  {
+    "type": "buffer",
+    "named": false
+  },
+  {
+    "type": "by",
+    "named": false
+  },
+  {
+    "type": "bypassing",
     "named": false
   },
   {
@@ -3396,6 +4132,10 @@
     "named": false
   },
   {
+    "type": "client",
+    "named": false
+  },
+  {
     "type": "component_name",
     "named": true
   },
@@ -3412,16 +4152,20 @@
     "named": false
   },
   {
+    "type": "count",
+    "named": false
+  },
+  {
     "type": "create",
+    "named": false
+  },
+  {
+    "type": "cross",
     "named": false
   },
   {
     "type": "data",
     "named": false
-  },
-  {
-    "type": "data_source",
-    "named": true
   },
   {
     "type": "default",
@@ -3433,6 +4177,14 @@
   },
   {
     "type": "definition",
+    "named": false
+  },
+  {
+    "type": "desc",
+    "named": false
+  },
+  {
+    "type": "distinct",
     "named": false
   },
   {
@@ -3465,6 +4217,10 @@
   },
   {
     "type": "endmethod",
+    "named": false
+  },
+  {
+    "type": "endselect",
     "named": false
   },
   {
@@ -3532,6 +4288,10 @@
     "named": false
   },
   {
+    "type": "full",
+    "named": false
+  },
+  {
     "type": "function",
     "named": false
   },
@@ -3540,7 +4300,15 @@
     "named": false
   },
   {
+    "type": "group",
+    "named": false
+  },
+  {
     "type": "hashed",
+    "named": false
+  },
+  {
+    "type": "having",
     "named": false
   },
   {
@@ -3576,6 +4344,10 @@
     "named": false
   },
   {
+    "type": "inner",
+    "named": false
+  },
+  {
     "type": "interface",
     "named": false
   },
@@ -3592,7 +4364,15 @@
     "named": true
   },
   {
+    "type": "join",
+    "named": false
+  },
+  {
     "type": "key",
+    "named": false
+  },
+  {
+    "type": "left",
     "named": false
   },
   {
@@ -3612,6 +4392,10 @@
     "named": false
   },
   {
+    "type": "max",
+    "named": false
+  },
+  {
     "type": "memory",
     "named": false
   },
@@ -3621,6 +4405,10 @@
   },
   {
     "type": "methods",
+    "named": false
+  },
+  {
+    "type": "min",
     "named": false
   },
   {
@@ -3652,11 +4440,27 @@
     "named": false
   },
   {
+    "type": "offset",
+    "named": false
+  },
+  {
+    "type": "on",
+    "named": false
+  },
+  {
     "type": "optional",
     "named": false
   },
   {
     "type": "or",
+    "named": false
+  },
+  {
+    "type": "order",
+    "named": false
+  },
+  {
+    "type": "package",
     "named": false
   },
   {
@@ -3724,6 +4528,10 @@
     "named": false
   },
   {
+    "type": "right",
+    "named": false
+  },
+  {
     "type": "rows",
     "named": false
   },
@@ -3744,7 +4552,19 @@
     "named": false
   },
   {
+    "type": "single",
+    "named": false
+  },
+  {
+    "type": "size",
+    "named": false
+  },
+  {
     "type": "sorted",
+    "named": false
+  },
+  {
+    "type": "specified",
     "named": false
   },
   {
@@ -3762,6 +4582,10 @@
   {
     "type": "strucure_name",
     "named": true
+  },
+  {
+    "type": "sum",
+    "named": false
   },
   {
     "type": "table",
@@ -3792,6 +4616,10 @@
     "named": false
   },
   {
+    "type": "update",
+    "named": false
+  },
+  {
     "type": "value",
     "named": false
   },
@@ -3805,6 +4633,10 @@
   },
   {
     "type": "write",
+    "named": false
+  },
+  {
+    "type": "~",
     "named": false
   }
 ]
