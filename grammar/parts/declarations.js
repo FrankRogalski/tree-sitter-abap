@@ -94,6 +94,24 @@ module.exports = {
 
   variable: $ => seq($.name, alias($._data_object_typing, $.typing)),
 
+  class_data_declaration: $ =>
+    seq(
+      kw("class-data"),
+      field("name", $.name),
+      field("typing", alias($._data_object_typing, $.typing)),
+      "."
+    ),
+
+  chained_class_data_declaration: $ =>
+    seq(
+      kw("class-data"),
+      ":",
+      repeat1(choice($.class_data_entry, seq(",", $.class_data_entry))),
+      "."
+    ),
+
+  class_data_entry: $ => seq($.name, alias($._data_object_typing, $.typing)),
+
   statics_declaration: $ =>
     seq(
       kw("statics"),
@@ -216,6 +234,42 @@ module.exports = {
     ),
 
   parameter_entry: $ => seq($.name, alias($._data_object_typing, $.typing)),
+
+  events_declaration: $ =>
+    seq(
+      kw("events"),
+      field("name", $.name),
+      "."
+    ),
+
+  chained_events_declaration: $ =>
+    seq(
+      kw("events"),
+      ":",
+      repeat1(choice($.event_entry, seq(",", $.event_entry))),
+      "."
+    ),
+
+  event_entry: $ => $.name,
+
+  aliases_declaration: $ =>
+    seq(
+      kw("aliases"),
+      field("name", $.name),
+      kw("for"),
+      field("target", $._data_object),
+      "."
+    ),
+
+  chained_aliases_declaration: $ =>
+    seq(
+      kw("aliases"),
+      ":",
+      repeat1(choice($.alias_entry, seq(",", $.alias_entry))),
+      "."
+    ),
+
+  alias_entry: $ => seq($.name, kw("for"), $._data_object),
 
   select_options_declaration: $ =>
     seq(

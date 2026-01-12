@@ -32,6 +32,8 @@ module.exports = {
         $.variable_declaration,
         $.chained_variable_declaration,
         $.chained_structure_declaration,
+        $.class_data_declaration,
+        $.chained_class_data_declaration,
         $.statics_declaration,
         $.chained_statics_declaration,
         $.constants_declaration,
@@ -43,6 +45,10 @@ module.exports = {
         $.chained_parameters_declaration,
         $.select_options_declaration,
         $.chained_select_options_declaration,
+        $.events_declaration,
+        $.chained_events_declaration,
+        $.aliases_declaration,
+        $.chained_aliases_declaration,
         $.loop_statement,
         $.field_symbol_declaration,
         $.chained_field_symbol_declaration,
@@ -117,6 +123,7 @@ module.exports = {
     _class_components: $ =>
       choice(
         $.variable_declaration,
+        $.class_data_declaration,
         $.statics_declaration,
         $.constants_declaration,
         $.types_declaration,
