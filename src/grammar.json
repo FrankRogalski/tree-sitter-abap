@@ -4165,6 +4165,22 @@
           "name": "types_declaration"
         },
         {
+          "type": "SYMBOL",
+          "name": "parameters_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "select_options_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "events_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "aliases_declaration"
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "SYMBOL",

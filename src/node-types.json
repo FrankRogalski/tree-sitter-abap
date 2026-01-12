@@ -3407,6 +3407,10 @@
       "required": false,
       "types": [
         {
+          "type": "aliases_declaration",
+          "named": true
+        },
+        {
           "type": "class_constructor_declaration",
           "named": true
         },
@@ -3427,11 +3431,23 @@
           "named": true
         },
         {
+          "type": "events_declaration",
+          "named": true
+        },
+        {
           "type": "method_declaration",
           "named": true
         },
         {
           "type": "method_redefinition",
+          "named": true
+        },
+        {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "select_options_declaration",
           "named": true
         },
         {
@@ -3690,6 +3706,10 @@
       "required": false,
       "types": [
         {
+          "type": "aliases_declaration",
+          "named": true
+        },
+        {
           "type": "class_constructor_declaration",
           "named": true
         },
@@ -3710,11 +3730,23 @@
           "named": true
         },
         {
+          "type": "events_declaration",
+          "named": true
+        },
+        {
           "type": "method_declaration",
           "named": true
         },
         {
           "type": "method_redefinition",
+          "named": true
+        },
+        {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "select_options_declaration",
           "named": true
         },
         {
@@ -3741,6 +3773,10 @@
       "required": false,
       "types": [
         {
+          "type": "aliases_declaration",
+          "named": true
+        },
+        {
           "type": "class_constructor_declaration",
           "named": true
         },
@@ -3761,11 +3797,23 @@
           "named": true
         },
         {
+          "type": "events_declaration",
+          "named": true
+        },
+        {
           "type": "method_declaration",
           "named": true
         },
         {
           "type": "method_redefinition",
+          "named": true
+        },
+        {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "select_options_declaration",
           "named": true
         },
         {
