@@ -26,6 +26,11 @@ module.exports = grammar({
         $.variable_declaration,
         $.chained_variable_declaration,
         $.chained_structure_declaration,
+        $.constants_declaration,
+        $.chained_constants_declaration,
+        $.types_declaration,
+        $.chained_types_declaration,
+        $.types_structure_declaration,
         $.loop_statement,
         $.field_symbol_declaration,
         $.chained_field_symbol_declaration,
@@ -99,6 +104,8 @@ module.exports = grammar({
     _class_components: $ =>
       choice(
         $.variable_declaration,
+        $.constants_declaration,
+        $.types_declaration,
         alias($.method_declaration_class, $.method_declaration),
         $.constructor_declaration,
         $.method_redefinition,
@@ -338,7 +345,15 @@ module.exports = grammar({
           seq(kw("like"), optional(seq(kw("line"), kw("of"))), $._data_object)
         ),
         optional(
-          seq(kw("value"), choice($.name, seq(kw("is"), kw("initial"))))
+          seq(
+            kw("value"),
+            choice(
+              $.name,
+              $.numeric_literal,
+              $.character_literal,
+              seq(kw("is"), kw("initial"))
+            )
+          )
         ),
         optional(kw("read-only"))
       ),
@@ -410,6 +425,57 @@ module.exports = grammar({
 
     structure_component: $ => seq($.name, $._typing, ","),
 
+    constants_declaration: $ =>
+      seq(
+        kw("constants"),
+        field("name", $.name),
+        field("typing", alias($._data_object_typing, $.typing)),
+        "."
+      ),
+
+    chained_constants_declaration: $ =>
+      seq(
+        kw("constants"),
+        ":",
+        repeat1(choice($.constant, seq(",", $.constant))),
+        "."
+      ),
+
+    constant: $ => seq($.name, alias($._data_object_typing, $.typing)),
+
+    types_declaration: $ =>
+      seq(
+        kw("types"),
+        field("name", $.name),
+        field("typing", alias($._data_object_typing, $.typing)),
+        "."
+      ),
+
+    chained_types_declaration: $ =>
+      seq(
+        kw("types"),
+        ":",
+        repeat1(choice($.type_entry, seq(",", $.type_entry))),
+        "."
+      ),
+
+    type_entry: $ => seq($.name, alias($._data_object_typing, $.typing)),
+
+    types_structure_declaration: $ =>
+      seq(
+        kw("types"),
+        ":",
+        kw("begin"),
+        kw("of"),
+        alias($.name, $.strucure_name),
+        ",",
+        alias(repeat1($.structure_component), $.structure_components),
+        kw("end"),
+        kw("of"),
+        alias($.name, $.strucure_name),
+        "."
+      ),
+
     field_symbol_declaration: $ =>
       seq(
         kw("field-symbols"),
@@ -434,8 +500,8 @@ module.exports = grammar({
         kw("at"),
         alias($.name, $.itab),
         choice(
-          seq(kw("into"), alias($.name, $.result)),
-          seq(kw("assigning"), alias($.field_symbol_name, $.result))
+          seq(kw("into"), alias($._data_object, $.result)),
+          seq(kw("assigning"), alias($._data_object, $.result))
         ),
         optional(
           seq(
@@ -721,13 +787,19 @@ module.exports = grammar({
       choice($.sql_into_list, $.sql_into_structure, $.sql_into_table),
 
     sql_into_list: $ =>
-      seq(kw("into"), "(", $.name, repeat(seq(",", $.name)), ")"),
+      seq(
+        kw("into"),
+        "(",
+        $.sql_target,
+        repeat(seq(",", $.sql_target)),
+        ")"
+      ),
 
     sql_into_structure: $ =>
       seq(
         kw("into"),
         optional(seq(kw("corresponding"), kw("fields"), kw("of"))),
-        $._data_object
+        $.sql_target
       ),
 
     sql_into_table: $ =>
@@ -735,8 +807,10 @@ module.exports = grammar({
         choice(kw("into"), kw("appending")),
         optional(seq(kw("corresponding"), kw("fields"), kw("of"))),
         kw("table"),
-        $._data_object
+        $.sql_target
       ),
+
+    sql_target: $ => seq(optional("@"), $._data_object),
 
     sql_up_to: $ =>
       seq(kw("up"), kw("to"), $._general_expression_position, kw("rows")),
@@ -774,16 +848,27 @@ module.exports = grammar({
 
     _read_table_result: $ =>
       choice(
-        seq(kw("into"), $.name),
+        seq(kw("into"), $._data_object),
         seq(kw("transporting"), kw("no"), kw("fields"))
       ),
+
+    inline_declaration: $ =>
+      choice($.inline_data, $.inline_final, $.inline_field_symbol),
+
+    inline_data: $ => seq(kw("data"), "(", $.name, ")"),
+
+    inline_final: $ => seq(kw("final"), "(", $.name, ")"),
+
+    inline_field_symbol: $ =>
+      seq(kw("field-symbol"), "(", $.field_symbol_name, ")"),
 
     _data_object: $ =>
       choice(
         $.name,
         $.field_symbol_name,
         $.structured_data_object,
-        $.attribute_access_static
+        $.attribute_access_static,
+        $.inline_declaration
       ),
 
     structured_data_object: $ =>
