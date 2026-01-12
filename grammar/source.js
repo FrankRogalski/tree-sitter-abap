@@ -11,7 +11,8 @@ module.exports = {
 
   conflicts: $ => [
     [ $.select_statement, $.select_loop_statement ],
-    [ $._data_object, $.host_variable ]
+    [ $._data_object, $.host_variable ],
+    [ $.loop_statement, $.loop_block_statement ]
   ],
 
   rules: {
@@ -53,6 +54,7 @@ module.exports = {
         $.aliases_declaration,
         $.chained_aliases_declaration,
         $.loop_statement,
+        $.loop_block_statement,
         $.field_symbol_declaration,
         $.chained_field_symbol_declaration,
         $.exit_statement,
@@ -364,6 +366,15 @@ module.exports = {
       ),
 
     loop_statement: $ =>
+      seq(
+        kw("loop"),
+        kw("at"),
+        field("target", choice($.name, kw("screen"))),
+        repeat(choice($.loop_result, $.loop_clause)),
+        "."
+      ),
+
+    loop_block_statement: $ =>
       seq(
         kw("loop"),
         kw("at"),

@@ -3353,6 +3353,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "loop_block_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "field_symbol_declaration"
         },
         {
@@ -5501,6 +5505,74 @@
       ]
     },
     "loop_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "loop",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "loop"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "at",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "at"
+        },
+        {
+          "type": "FIELD",
+          "name": "target",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "name"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "screen",
+                  "flags": "i"
+                },
+                "named": false,
+                "value": "screen"
+              }
+            ]
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "loop_result"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "loop_clause"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "loop_block_statement": {
       "type": "SEQ",
       "members": [
         {
@@ -11036,6 +11108,10 @@
     [
       "_data_object",
       "host_variable"
+    ],
+    [
+      "loop_statement",
+      "loop_block_statement"
     ]
   ],
   "precedences": [],
