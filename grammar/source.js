@@ -9,7 +9,10 @@ module.exports = {
 
   extras: $ => [/\s+/, $.eol_comment, $.bol_comment],
 
-  conflicts: $ => [[ $.select_statement, $.select_loop_statement ]],
+  conflicts: $ => [
+    [ $.select_statement, $.select_loop_statement ],
+    [ $._data_object, $.host_variable ]
+  ],
 
   rules: {
     program: $ => repeat($._statement),
@@ -62,7 +65,31 @@ module.exports = {
         $.assignment,
         $.select_statement,
         $.select_loop_statement,
+        $.insert_statement,
+        $.update_statement,
+        $.delete_statement,
+        $.modify_statement,
         $.read_table_statement,
+        $.open_dataset_statement,
+        $.read_dataset_statement,
+        $.transfer_statement,
+        $.shift_statement,
+        $.replace_statement,
+        $.find_statement,
+        $.concatenate_statement,
+        $.collect_statement,
+        $.commit_statement,
+        $.move_corresponding_statement,
+        $.translate_statement,
+        $.call_transaction_statement,
+        $.submit_statement,
+        $.search_statement,
+        $.create_data_statement,
+        $.set_parameter_statement,
+        $.get_parameter_statement,
+        $.split_statement,
+        $.sort_statement,
+        $.open_cursor_statement,
         $.try_catch_statement,
         $.write_statement,
         $.chained_write_statement,
@@ -77,8 +104,7 @@ module.exports = {
         $.include_statement,
         $.macro_include,
         $.raise_statement,
-        $.form_statement,
-        $.append_statement_obsolete
+        $.form_statement
       ),
 
     class_declaration: $ =>
@@ -341,24 +367,36 @@ module.exports = {
       seq(
         kw("loop"),
         kw("at"),
-        alias($.name, $.itab),
-        choice(
-          seq(kw("into"), alias($._data_object, $.result)),
-          seq(kw("assigning"), alias($._data_object, $.result))
-        ),
-        optional(
-          seq(
-            optional(seq(kw("from"), $._general_expression_position)),
-            optional(seq(kw("to"), $._general_expression_position)),
-            optional(seq(kw("step"), $._general_expression_position))
-          )
-        ),
+        field("target", choice($.name, kw("screen"))),
+        repeat(choice($.loop_result, $.loop_clause)),
         ".",
         // FIXME: not all statements are allowed in loop body
         repeat($._statement),
         kw("endloop"),
         "."
       ),
+
+    loop_result: $ =>
+      seq(choice(kw("into"), kw("assigning")), field("result", $._data_object)),
+
+    loop_clause: $ =>
+      choice(
+        $.loop_clause_from,
+        $.loop_clause_to,
+        $.loop_clause_step,
+        $.loop_clause_where,
+        $.loop_clause_using_key
+      ),
+
+    loop_clause_from: $ => seq(kw("from"), $._general_expression_position),
+
+    loop_clause_to: $ => seq(kw("to"), $._general_expression_position),
+
+    loop_clause_step: $ => seq(kw("step"), $._general_expression_position),
+
+    loop_clause_where: $ => seq(kw("where"), $._logical_expression),
+
+    loop_clause_using_key: $ => seq(kw("using"), kw("key"), $.name),
 
     exit_statement: $ => seq(kw("exit"), "."),
 
@@ -508,31 +546,400 @@ module.exports = {
         field("operand", $._general_expression_position)
       ),
 
+    insert_statement: $ =>
+      seq(kw("insert"), repeat1($.insert_part), "."),
+
+    insert_part: $ =>
+      choice(
+        $._general_expression_position,
+        $.insert_into_clause,
+        $.insert_values_clause,
+        $.insert_from_clause,
+        $.insert_table_clause,
+        $.insert_accepting_clause,
+        $.insert_assigning_clause,
+        $.insert_reference_clause
+      ),
+
+    insert_into_clause: $ => seq(kw("into"), $.name),
+
+    insert_values_clause: $ => seq(kw("values"), $._general_expression_position),
+
+    insert_from_clause: $ =>
+      seq(kw("from"), optional(kw("table")), $._general_expression_position),
+
+    insert_table_clause: $ => seq(kw("table"), $._general_expression_position),
+
+    insert_accepting_clause: $ =>
+      seq(kw("accepting"), kw("duplicate"), kw("keys")),
+
+    insert_assigning_clause: $ =>
+      seq(kw("assigning"), $._data_object),
+
+    insert_reference_clause: $ =>
+      seq(kw("reference"), kw("into"), $._data_object),
+
+    update_statement: $ =>
+      seq(kw("update"), repeat1($.update_part), "."),
+
+    update_part: $ =>
+      choice(
+        $._general_expression_position,
+        $.update_from_clause,
+        $.update_set_clause,
+        $.update_where_clause,
+        $.update_indicators_clause,
+        $.update_table_clause
+      ),
+
+    update_from_clause: $ =>
+      seq(kw("from"), optional(kw("table")), $._general_expression_position),
+
+    update_set_clause: $ =>
+      seq(
+        kw("set"),
+        $._logical_expression,
+        repeat(seq(",", $._logical_expression))
+      ),
+
+    update_where_clause: $ => seq(kw("where"), $._logical_expression),
+
+    update_indicators_clause: $ =>
+      seq(kw("indicators"), kw("set"), kw("structure"), $.name),
+
+    update_table_clause: $ => seq(kw("table"), $._general_expression_position),
+
+    delete_statement: $ =>
+      seq(kw("delete"), repeat1($.delete_part), "."),
+
+    delete_part: $ =>
+      choice(
+        $._general_expression_position,
+        $.delete_from_clause,
+        $.delete_where_clause,
+        $.delete_from_table_clause
+      ),
+
+    delete_from_clause: $ => seq(kw("from"), $._general_expression_position),
+
+    delete_from_table_clause: $ => seq(kw("from"), kw("table"), $._general_expression_position),
+
+    delete_where_clause: $ => seq(kw("where"), $._logical_expression),
+
+    modify_statement: $ =>
+      seq(kw("modify"), repeat1($.modify_part), "."),
+
+    modify_part: $ =>
+      choice(
+        $._general_expression_position,
+        $.modify_from_clause,
+        $.modify_table_clause
+      ),
+
+    modify_from_clause: $ =>
+      seq(kw("from"), optional(kw("table")), $._general_expression_position),
+
+    modify_table_clause: $ => seq(kw("table"), $._general_expression_position),
+
     read_table_statement: $ =>
       seq(
         kw("read"),
         kw("table"),
-        $.name,
-        choice(
-          seq($.line_spec, $._read_table_result),
-          seq($._read_table_result, $.line_spec)
+        field("itab", $.name),
+        repeat(
+          choice(
+            $.read_table_with_key,
+            $.read_table_index,
+            $.read_table_from,
+            $.read_table_result,
+            $.read_table_binary_search
+          )
         ),
         "."
       ),
 
-    line_spec: $ =>
+    read_table_with_key: $ =>
       seq(
         kw("with"),
         kw("key"),
-        repeat1(seq($.name, "=", $._general_expression_position)),
-        optional(seq(kw("binary"), kw("search")))
+        repeat1(seq($.name, "=", $._general_expression_position))
       ),
 
-    _read_table_result: $ =>
+    read_table_index: $ => seq(kw("index"), $._general_expression_position),
+
+    read_table_from: $ => seq(kw("from"), $._data_object),
+
+    read_table_binary_search: $ => seq(kw("binary"), kw("search")),
+
+    read_table_result: $ =>
       choice(
         seq(kw("into"), $._data_object),
+        seq(kw("assigning"), $._data_object),
         seq(kw("transporting"), kw("no"), kw("fields"))
       ),
+
+    open_dataset_statement: $ =>
+      seq(
+        kw("open"),
+        kw("dataset"),
+        repeat1(choice($._data_object, $.open_dataset_for_clause)),
+        "."
+      ),
+
+    open_dataset_for_clause: $ =>
+      seq(
+        kw("for"),
+        optional(choice(kw("input"), kw("output"), kw("update")))
+      ),
+
+    read_dataset_statement: $ =>
+      seq(
+        kw("read"),
+        kw("dataset"),
+        repeat1(choice($._data_object, $.read_dataset_into_clause, $.read_dataset_length_clause)),
+        "."
+      ),
+
+    read_dataset_into_clause: $ => seq(kw("into"), $._data_object),
+
+    read_dataset_length_clause: $ =>
+      seq(kw("maximum"), kw("length"), $._general_expression_position),
+
+    transfer_statement: $ =>
+      seq(
+        kw("transfer"),
+        repeat1(choice($._general_expression_position, $.transfer_to_clause, $.transfer_length_clause)),
+        "."
+      ),
+
+    transfer_to_clause: $ => seq(kw("to"), $._data_object),
+
+    transfer_length_clause: $ => seq(kw("length"), $._general_expression_position),
+
+    shift_statement: $ =>
+      seq(kw("shift"), repeat1(choice($._data_object, $.mode_clause)), "."),
+
+    replace_statement: $ =>
+      seq(
+        kw("replace"),
+        optional(seq(kw("all"), kw("occurrences"), kw("of"))),
+        $._general_expression_position,
+        kw("in"),
+        $._data_object,
+        repeat(choice($.mode_clause, $.case_clause)),
+        "."
+      ),
+
+    find_statement: $ =>
+      seq(
+        kw("find"),
+        $._general_expression_position,
+        optional(seq(kw("in"), $._data_object)),
+        repeat(choice($.mode_clause, $.case_clause)),
+        "."
+      ),
+
+    concatenate_statement: $ =>
+      seq(
+        kw("concatenate"),
+        repeat1(choice($._general_expression_position, $.concatenate_into_clause, $.concatenate_mode_clause)),
+        "."
+      ),
+
+    concatenate_into_clause: $ => seq(kw("into"), $._data_object),
+
+    concatenate_mode_clause: $ =>
+      seq(kw("in"), choice(seq(kw("byte"), kw("mode")), seq(kw("character"), kw("mode")))),
+
+    collect_statement: $ =>
+      seq(
+        kw("collect"),
+        repeat1(choice($._general_expression_position, $.collect_into_clause, $.collect_assigning_clause)),
+        "."
+      ),
+
+    collect_into_clause: $ => seq(kw("into"), $._data_object),
+
+    collect_assigning_clause: $ => seq(kw("assigning"), $._data_object),
+
+    commit_statement: $ =>
+      seq(
+        kw("commit"),
+        optional(kw("work")),
+        optional(seq(kw("and"), kw("wait"))),
+        "."
+      ),
+
+    move_corresponding_statement: $ =>
+      seq(
+        kw("move-corresponding"),
+        repeat1(choice($._data_object, $.move_corresponding_to_clause, $.move_corresponding_expand_clause)),
+        "."
+      ),
+
+    move_corresponding_to_clause: $ => seq(kw("to"), $._data_object),
+
+    move_corresponding_expand_clause: $ =>
+      seq(kw("expanding"), kw("nested"), kw("tables")),
+
+    translate_statement: $ =>
+      seq(
+        kw("translate"),
+        repeat1(choice($._data_object, $.translate_to_clause, $.translate_using_clause)),
+        "."
+      ),
+
+    translate_to_clause: $ =>
+      seq(kw("to"), choice(seq(kw("upper"), kw("case")), seq(kw("lower"), kw("case")))),
+
+    translate_using_clause: $ => seq(kw("using"), $._data_object),
+
+    call_transaction_statement: $ =>
+      seq(
+        kw("call"),
+        kw("transaction"),
+        $.character_literal,
+        repeat(choice($.call_transaction_with_clause, $.call_transaction_without_clause)),
+        "."
+      ),
+
+    call_transaction_with_clause: $ =>
+      seq(kw("with"), optional(kw("authority-check"))),
+
+    call_transaction_without_clause: $ =>
+      seq(kw("without"), kw("authority-check")),
+
+    submit_statement: $ =>
+      seq(
+        kw("submit"),
+        $.name,
+        repeat(choice($.submit_selection_set_clause, $.submit_selection_sets_clause)),
+        "."
+      ),
+
+    submit_selection_set_clause: $ =>
+      seq(kw("using"), kw("selection-set"), $._data_object),
+
+    submit_selection_sets_clause: $ =>
+      seq(
+        kw("using"),
+        kw("selection-sets"),
+        kw("of"),
+        kw("program"),
+        $._data_object
+      ),
+
+    search_statement: $ =>
+      seq(
+        kw("search"),
+        $._data_object,
+        repeat(choice($.search_for_clause, $.mode_clause)),
+        "."
+      ),
+
+    search_for_clause: $ => seq(kw("for"), $._general_expression_position),
+
+    create_data_statement: $ =>
+      seq(
+        kw("create"),
+        kw("data"),
+        $.name,
+        repeat(choice($.create_data_type_handle_clause, $.create_data_type_clause, $.create_data_like_clause)),
+        "."
+      ),
+
+    create_data_type_handle_clause: $ =>
+      seq(kw("type"), kw("handle"), $._data_object),
+
+    create_data_type_clause: $ => seq(kw("type"), $._data_object),
+
+    create_data_like_clause: $ => seq(kw("like"), $._data_object),
+
+    set_parameter_statement: $ =>
+      seq(
+        kw("set"),
+        kw("parameter"),
+        kw("id"),
+        $.character_literal,
+        repeat($.parameter_field_clause),
+        "."
+      ),
+
+    get_parameter_statement: $ =>
+      seq(
+        kw("get"),
+        kw("parameter"),
+        kw("id"),
+        $.character_literal,
+        repeat($.parameter_field_clause),
+        "."
+      ),
+
+    parameter_field_clause: $ => seq(kw("field"), $._data_object),
+
+    mode_clause: $ =>
+      seq(
+        kw("in"),
+        choice(seq(kw("byte"), kw("mode")), seq(kw("character"), kw("mode")))
+      ),
+
+    case_clause: $ =>
+      choice(seq(kw("ignoring"), kw("case")), seq(kw("respecting"), kw("case"))),
+
+    split_statement: $ =>
+      seq(
+        kw("split"),
+        field("source", $._general_expression_position),
+        repeat(choice($.split_at_clause, $.split_into_clause)),
+        "."
+      ),
+
+    split_at_clause: $ => seq(kw("at"), $._general_expression_position),
+
+    split_into_clause: $ =>
+      choice(
+        seq(kw("into"), kw("table"), $._data_object),
+        seq(kw("into"), repeat1($._data_object))
+      ),
+
+    sort_statement: $ =>
+      seq(
+        kw("sort"),
+        field("itab", $.name),
+        repeat($.sort_clause),
+        "."
+      ),
+
+    sort_clause: $ =>
+      choice(
+        $.sort_by_clause,
+        $.sort_order_clause,
+        $.sort_as_text_clause,
+        $.sort_stable_clause
+      ),
+
+    sort_by_clause: $ => seq(kw("by"), repeat1($.name)),
+
+    sort_order_clause: $ => choice(kw("ascending"), kw("descending")),
+
+    sort_as_text_clause: $ => seq(kw("as"), kw("text")),
+
+    sort_stable_clause: $ => kw("stable"),
+
+    open_cursor_statement: $ =>
+      seq(
+        kw("open"),
+        kw("cursor"),
+        optional($.open_cursor_hold),
+        field("cursor", $.name),
+        optional($.open_cursor_for),
+        optional($.open_cursor_hold),
+        "."
+      ),
+
+    open_cursor_hold: $ => seq(kw("with"), kw("hold")),
+
+    open_cursor_for: $ => seq(kw("for"), $.select_statement_body),
 
     inline_declaration: $ =>
       choice($.inline_data, $.inline_final, $.inline_field_symbol),
@@ -547,11 +954,14 @@ module.exports = {
     _data_object: $ =>
       choice(
         $.name,
+        $.host_variable,
         $.field_symbol_name,
         $.structured_data_object,
         $.attribute_access_static,
         $.inline_declaration
       ),
+
+    host_variable: $ => seq("@", $.name),
 
     structured_data_object: $ =>
       seq(
@@ -751,28 +1161,55 @@ module.exports = {
         "."
       ),
 
-    clear_statement: $ => seq(kw("clear"), $._data_object, "."),
+    clear_statement: $ =>
+      seq(
+        kw("clear"),
+        repeat1(choice($._data_object, $.clear_with_clause, $.mode_clause)),
+        "."
+      ),
+
+    clear_with_clause: $ => seq(kw("with"), $._data_object),
 
     append_statement: $ =>
       seq(
         kw("append"),
-        field("line_spec", $.name),
-        kw("to"),
-        field("itab", $.name),
+        repeat1(choice($._data_object, $.append_to_clause, $.append_assigning_clause, $.append_reference_clause)),
         "."
       ),
 
-    append_statement_obsolete: $ =>
-      seq(kw("append"), field("itab", $.name), "."),
+    append_to_clause: $ => seq(kw("to"), $._data_object),
+
+    append_assigning_clause: $ => seq(kw("assigning"), $._data_object),
+
+    append_reference_clause: $ => seq(kw("reference"), kw("into"), $._data_object),
 
     create_object_statement: $ =>
       seq(
         kw("create"),
         kw("object"),
         $.name,
-        optional(seq(kw("exporting"), field("parameters", $.parameter_list))),
+        repeat(
+          choice(
+            $.create_object_exporting_clause,
+            $.create_object_parameter_table_clause,
+            $.create_object_exception_table_clause,
+            $.create_object_exceptions_clause
+          )
+        ),
         "."
       ),
+
+    create_object_exporting_clause: $ =>
+      seq(kw("exporting"), field("parameters", $.parameter_list)),
+
+    create_object_parameter_table_clause: $ =>
+      seq(kw("parameter-table"), $._data_object),
+
+    create_object_exception_table_clause: $ =>
+      seq(kw("exception-table"), $._data_object),
+
+    create_object_exceptions_clause: $ =>
+      seq(kw("exceptions"), repeat1(seq($.name, "=", $._general_expression_position))),
 
     include_statement: $ =>
       seq(

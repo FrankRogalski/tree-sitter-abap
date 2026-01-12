@@ -16,6 +16,10 @@
           "named": true
         },
         {
+          "type": "host_variable",
+          "named": true
+        },
+        {
           "type": "inline_declaration",
           "named": true
         },
@@ -57,6 +61,10 @@
             "named": true
           },
           {
+            "type": "host_variable",
+            "named": true
+          },
+          {
             "type": "inline_declaration",
             "named": true
           },
@@ -73,45 +81,155 @@
     }
   },
   {
-    "type": "append_statement",
+    "type": "append_assigning_clause",
     "named": true,
-    "fields": {
-      "itab": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "name",
-            "named": true
-          }
-        ]
-      },
-      "line_spec": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "name",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
     }
   },
   {
-    "type": "append_statement_obsolete",
+    "type": "append_reference_clause",
     "named": true,
-    "fields": {
-      "itab": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "name",
-            "named": true
-          }
-        ]
-      }
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "append_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "append_assigning_clause",
+          "named": true
+        },
+        {
+          "type": "append_reference_clause",
+          "named": true
+        },
+        {
+          "type": "append_to_clause",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "append_to_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -136,6 +254,10 @@
         },
         {
           "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
           "named": true
         },
         {
@@ -179,6 +301,10 @@
         },
         {
           "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
           "named": true
         },
         {
@@ -327,6 +453,10 @@
             "named": true
           },
           {
+            "type": "host_variable",
+            "named": true
+          },
+          {
             "type": "importing",
             "named": false
           },
@@ -412,6 +542,10 @@
           },
           {
             "type": "field_symbol_name",
+            "named": true
+          },
+          {
+            "type": "host_variable",
             "named": true
           },
           {
@@ -503,6 +637,10 @@
             "named": true
           },
           {
+            "type": "host_variable",
+            "named": true
+          },
+          {
             "type": "importing",
             "named": false
           },
@@ -539,6 +677,44 @@
     }
   },
   {
+    "type": "call_transaction_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "call_transaction_with_clause",
+          "named": true
+        },
+        {
+          "type": "call_transaction_without_clause",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "call_transaction_with_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "call_transaction_without_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "case_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "catch_block",
     "named": true,
     "fields": {},
@@ -552,10 +728,6 @@
         },
         {
           "type": "append_statement",
-          "named": true
-        },
-        {
-          "type": "append_statement_obsolete",
           "named": true
         },
         {
@@ -576,6 +748,10 @@
         },
         {
           "type": "call_method_static",
+          "named": true
+        },
+        {
+          "type": "call_transaction_statement",
           "named": true
         },
         {
@@ -655,6 +831,18 @@
           "named": true
         },
         {
+          "type": "collect_statement",
+          "named": true
+        },
+        {
+          "type": "commit_statement",
+          "named": true
+        },
+        {
+          "type": "concatenate_statement",
+          "named": true
+        },
+        {
           "type": "constants_declaration",
           "named": true
         },
@@ -663,7 +851,15 @@
           "named": true
         },
         {
+          "type": "create_data_statement",
+          "named": true
+        },
+        {
           "type": "create_object_statement",
+          "named": true
+        },
+        {
+          "type": "delete_statement",
           "named": true
         },
         {
@@ -679,6 +875,10 @@
           "named": true
         },
         {
+          "type": "find_statement",
+          "named": true
+        },
+        {
           "type": "form_statement",
           "named": true
         },
@@ -687,11 +887,19 @@
           "named": true
         },
         {
+          "type": "get_parameter_statement",
+          "named": true
+        },
+        {
           "type": "if_statement",
           "named": true
         },
         {
           "type": "include_statement",
+          "named": true
+        },
+        {
+          "type": "insert_statement",
           "named": true
         },
         {
@@ -704,6 +912,22 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "modify_statement",
+          "named": true
+        },
+        {
+          "type": "move_corresponding_statement",
+          "named": true
+        },
+        {
+          "type": "open_cursor_statement",
+          "named": true
+        },
+        {
+          "type": "open_dataset_statement",
           "named": true
         },
         {
@@ -723,7 +947,15 @@
           "named": true
         },
         {
+          "type": "read_dataset_statement",
+          "named": true
+        },
+        {
           "type": "read_table_statement",
+          "named": true
+        },
+        {
+          "type": "replace_statement",
           "named": true
         },
         {
@@ -732,6 +964,10 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "search_statement",
           "named": true
         },
         {
@@ -747,7 +983,35 @@
           "named": true
         },
         {
+          "type": "set_parameter_statement",
+          "named": true
+        },
+        {
+          "type": "shift_statement",
+          "named": true
+        },
+        {
+          "type": "sort_statement",
+          "named": true
+        },
+        {
+          "type": "split_statement",
+          "named": true
+        },
+        {
           "type": "statics_declaration",
+          "named": true
+        },
+        {
+          "type": "submit_statement",
+          "named": true
+        },
+        {
+          "type": "transfer_statement",
+          "named": true
+        },
+        {
+          "type": "translate_statement",
           "named": true
         },
         {
@@ -760,6 +1024,10 @@
         },
         {
           "type": "types_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "update_statement",
           "named": true
         },
         {
@@ -1000,6 +1268,10 @@
         },
         {
           "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
           "named": true
         },
         {
@@ -1325,6 +1597,49 @@
     "named": true,
     "fields": {},
     "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "clear_with_clause",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "mode_clause",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "clear_with_clause",
+    "named": true,
+    "fields": {},
+    "children": {
       "multiple": false,
       "required": true,
       "types": [
@@ -1334,6 +1649,10 @@
         },
         {
           "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
           "named": true
         },
         {
@@ -1350,6 +1669,136 @@
         }
       ]
     }
+  },
+  {
+    "type": "collect_assigning_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "collect_into_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "collect_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "collect_assigning_clause",
+          "named": true
+        },
+        {
+          "type": "collect_into_clause",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "commit_statement",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "comp_spec",
@@ -1383,6 +1832,10 @@
           },
           {
             "type": "field_symbol_name",
+            "named": true
+          },
+          {
+            "type": "host_variable",
             "named": true
           },
           {
@@ -1430,6 +1883,10 @@
           "named": true
         },
         {
+          "type": "host_variable",
+          "named": true
+        },
+        {
           "type": "inline_declaration",
           "named": true
         },
@@ -1458,6 +1915,101 @@
       "types": [
         {
           "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "concatenate_into_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "concatenate_mode_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "concatenate_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "concatenate_into_clause",
+          "named": true
+        },
+        {
+          "type": "concatenate_mode_clause",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
           "named": true
         }
       ]
@@ -1574,12 +2126,226 @@
     "fields": {}
   },
   {
-    "type": "create_object_statement",
+    "type": "create_data_like_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_data_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "create_data_like_clause",
+          "named": true
+        },
+        {
+          "type": "create_data_type_clause",
+          "named": true
+        },
+        {
+          "type": "create_data_type_handle_clause",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_data_type_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_data_type_handle_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_object_exception_table_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_object_exceptions_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_object_exporting_clause",
     "named": true,
     "fields": {
       "parameters": {
         "multiple": false,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "parameter_list",
@@ -1587,11 +2353,254 @@
           }
         ]
       }
-    },
+    }
+  },
+  {
+    "type": "create_object_parameter_table_clause",
+    "named": true,
+    "fields": {},
     "children": {
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "create_object_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "create_object_exception_table_clause",
+          "named": true
+        },
+        {
+          "type": "create_object_exceptions_clause",
+          "named": true
+        },
+        {
+          "type": "create_object_exporting_clause",
+          "named": true
+        },
+        {
+          "type": "create_object_parameter_table_clause",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete_from_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete_from_table_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete_part",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "delete_from_clause",
+          "named": true
+        },
+        {
+          "type": "delete_from_table_clause",
+          "named": true
+        },
+        {
+          "type": "delete_where_clause",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "delete_part",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete_where_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comparison_expression",
+          "named": true
+        },
         {
           "type": "name",
           "named": true
@@ -1703,6 +2712,61 @@
     }
   },
   {
+    "type": "find_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "case_clause",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "mode_clause",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "form_statement",
     "named": true,
     "fields": {
@@ -1730,10 +2794,6 @@
           "named": true
         },
         {
-          "type": "append_statement_obsolete",
-          "named": true
-        },
-        {
           "type": "assignment",
           "named": true
         },
@@ -1751,6 +2811,10 @@
         },
         {
           "type": "call_method_static",
+          "named": true
+        },
+        {
+          "type": "call_transaction_statement",
           "named": true
         },
         {
@@ -1814,6 +2878,18 @@
           "named": true
         },
         {
+          "type": "collect_statement",
+          "named": true
+        },
+        {
+          "type": "commit_statement",
+          "named": true
+        },
+        {
+          "type": "concatenate_statement",
+          "named": true
+        },
+        {
           "type": "constants_declaration",
           "named": true
         },
@@ -1822,7 +2898,15 @@
           "named": true
         },
         {
+          "type": "create_data_statement",
+          "named": true
+        },
+        {
           "type": "create_object_statement",
+          "named": true
+        },
+        {
+          "type": "delete_statement",
           "named": true
         },
         {
@@ -1838,7 +2922,15 @@
           "named": true
         },
         {
+          "type": "find_statement",
+          "named": true
+        },
+        {
           "type": "form_statement",
+          "named": true
+        },
+        {
+          "type": "get_parameter_statement",
           "named": true
         },
         {
@@ -1850,11 +2942,31 @@
           "named": true
         },
         {
+          "type": "insert_statement",
+          "named": true
+        },
+        {
           "type": "loop_statement",
           "named": true
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "modify_statement",
+          "named": true
+        },
+        {
+          "type": "move_corresponding_statement",
+          "named": true
+        },
+        {
+          "type": "open_cursor_statement",
+          "named": true
+        },
+        {
+          "type": "open_dataset_statement",
           "named": true
         },
         {
@@ -1874,7 +2986,15 @@
           "named": true
         },
         {
+          "type": "read_dataset_statement",
+          "named": true
+        },
+        {
           "type": "read_table_statement",
+          "named": true
+        },
+        {
+          "type": "replace_statement",
           "named": true
         },
         {
@@ -1883,6 +3003,10 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "search_statement",
           "named": true
         },
         {
@@ -1898,7 +3022,35 @@
           "named": true
         },
         {
+          "type": "set_parameter_statement",
+          "named": true
+        },
+        {
+          "type": "shift_statement",
+          "named": true
+        },
+        {
+          "type": "sort_statement",
+          "named": true
+        },
+        {
+          "type": "split_statement",
+          "named": true
+        },
+        {
           "type": "statics_declaration",
+          "named": true
+        },
+        {
+          "type": "submit_statement",
+          "named": true
+        },
+        {
+          "type": "transfer_statement",
+          "named": true
+        },
+        {
+          "type": "translate_statement",
           "named": true
         },
         {
@@ -1911,6 +3063,10 @@
         },
         {
           "type": "types_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "update_statement",
           "named": true
         },
         {
@@ -1967,10 +3123,6 @@
           "named": true
         },
         {
-          "type": "append_statement_obsolete",
-          "named": true
-        },
-        {
           "type": "assignment",
           "named": true
         },
@@ -1988,6 +3140,10 @@
         },
         {
           "type": "call_method_static",
+          "named": true
+        },
+        {
+          "type": "call_transaction_statement",
           "named": true
         },
         {
@@ -2051,6 +3207,18 @@
           "named": true
         },
         {
+          "type": "collect_statement",
+          "named": true
+        },
+        {
+          "type": "commit_statement",
+          "named": true
+        },
+        {
+          "type": "concatenate_statement",
+          "named": true
+        },
+        {
           "type": "constants_declaration",
           "named": true
         },
@@ -2059,7 +3227,15 @@
           "named": true
         },
         {
+          "type": "create_data_statement",
+          "named": true
+        },
+        {
           "type": "create_object_statement",
+          "named": true
+        },
+        {
+          "type": "delete_statement",
           "named": true
         },
         {
@@ -2075,7 +3251,15 @@
           "named": true
         },
         {
+          "type": "find_statement",
+          "named": true
+        },
+        {
           "type": "form_statement",
+          "named": true
+        },
+        {
+          "type": "get_parameter_statement",
           "named": true
         },
         {
@@ -2087,11 +3271,31 @@
           "named": true
         },
         {
+          "type": "insert_statement",
+          "named": true
+        },
+        {
           "type": "loop_statement",
           "named": true
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "modify_statement",
+          "named": true
+        },
+        {
+          "type": "move_corresponding_statement",
+          "named": true
+        },
+        {
+          "type": "open_cursor_statement",
+          "named": true
+        },
+        {
+          "type": "open_dataset_statement",
           "named": true
         },
         {
@@ -2111,7 +3315,15 @@
           "named": true
         },
         {
+          "type": "read_dataset_statement",
+          "named": true
+        },
+        {
           "type": "read_table_statement",
+          "named": true
+        },
+        {
+          "type": "replace_statement",
           "named": true
         },
         {
@@ -2120,6 +3332,10 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "search_statement",
           "named": true
         },
         {
@@ -2135,7 +3351,35 @@
           "named": true
         },
         {
+          "type": "set_parameter_statement",
+          "named": true
+        },
+        {
+          "type": "shift_statement",
+          "named": true
+        },
+        {
+          "type": "sort_statement",
+          "named": true
+        },
+        {
+          "type": "split_statement",
+          "named": true
+        },
+        {
           "type": "statics_declaration",
+          "named": true
+        },
+        {
+          "type": "submit_statement",
+          "named": true
+        },
+        {
+          "type": "transfer_statement",
+          "named": true
+        },
+        {
+          "type": "translate_statement",
           "named": true
         },
         {
@@ -2148,6 +3392,10 @@
         },
         {
           "type": "types_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "update_statement",
           "named": true
         },
         {
@@ -2186,6 +3434,40 @@
     }
   },
   {
+    "type": "get_parameter_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "parameter_field_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "host_variable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_statement",
     "named": true,
     "fields": {},
@@ -2199,10 +3481,6 @@
         },
         {
           "type": "append_statement",
-          "named": true
-        },
-        {
-          "type": "append_statement_obsolete",
           "named": true
         },
         {
@@ -2223,6 +3501,10 @@
         },
         {
           "type": "call_method_static",
+          "named": true
+        },
+        {
+          "type": "call_transaction_statement",
           "named": true
         },
         {
@@ -2302,7 +3584,19 @@
           "named": true
         },
         {
+          "type": "collect_statement",
+          "named": true
+        },
+        {
+          "type": "commit_statement",
+          "named": true
+        },
+        {
           "type": "comparison_expression",
+          "named": true
+        },
+        {
+          "type": "concatenate_statement",
           "named": true
         },
         {
@@ -2314,7 +3608,15 @@
           "named": true
         },
         {
+          "type": "create_data_statement",
+          "named": true
+        },
+        {
           "type": "create_object_statement",
+          "named": true
+        },
+        {
+          "type": "delete_statement",
           "named": true
         },
         {
@@ -2330,6 +3632,10 @@
           "named": true
         },
         {
+          "type": "find_statement",
+          "named": true
+        },
+        {
           "type": "form_statement",
           "named": true
         },
@@ -2338,11 +3644,19 @@
           "named": true
         },
         {
+          "type": "get_parameter_statement",
+          "named": true
+        },
+        {
           "type": "if_statement",
           "named": true
         },
         {
           "type": "include_statement",
+          "named": true
+        },
+        {
+          "type": "insert_statement",
           "named": true
         },
         {
@@ -2358,7 +3672,23 @@
           "named": true
         },
         {
+          "type": "modify_statement",
+          "named": true
+        },
+        {
+          "type": "move_corresponding_statement",
+          "named": true
+        },
+        {
           "type": "name",
+          "named": true
+        },
+        {
+          "type": "open_cursor_statement",
+          "named": true
+        },
+        {
+          "type": "open_dataset_statement",
           "named": true
         },
         {
@@ -2378,7 +3708,15 @@
           "named": true
         },
         {
+          "type": "read_dataset_statement",
+          "named": true
+        },
+        {
           "type": "read_table_statement",
+          "named": true
+        },
+        {
+          "type": "replace_statement",
           "named": true
         },
         {
@@ -2387,6 +3725,10 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "search_statement",
           "named": true
         },
         {
@@ -2402,7 +3744,35 @@
           "named": true
         },
         {
+          "type": "set_parameter_statement",
+          "named": true
+        },
+        {
+          "type": "shift_statement",
+          "named": true
+        },
+        {
+          "type": "sort_statement",
+          "named": true
+        },
+        {
+          "type": "split_statement",
+          "named": true
+        },
+        {
           "type": "statics_declaration",
+          "named": true
+        },
+        {
+          "type": "submit_statement",
+          "named": true
+        },
+        {
+          "type": "transfer_statement",
+          "named": true
+        },
+        {
+          "type": "translate_statement",
           "named": true
         },
         {
@@ -2415,6 +3785,10 @@
         },
         {
           "type": "types_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "update_statement",
           "named": true
         },
         {
@@ -2516,6 +3890,327 @@
     }
   },
   {
+    "type": "insert_accepting_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "insert_assigning_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "insert_from_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "insert_into_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "insert_part",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "insert_accepting_clause",
+          "named": true
+        },
+        {
+          "type": "insert_assigning_clause",
+          "named": true
+        },
+        {
+          "type": "insert_from_clause",
+          "named": true
+        },
+        {
+          "type": "insert_into_clause",
+          "named": true
+        },
+        {
+          "type": "insert_reference_clause",
+          "named": true
+        },
+        {
+          "type": "insert_table_clause",
+          "named": true
+        },
+        {
+          "type": "insert_values_clause",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "insert_reference_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "insert_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "insert_part",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "insert_table_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "insert_values_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "interface_declaration",
     "named": true,
     "fields": {
@@ -2550,11 +4245,42 @@
     }
   },
   {
-    "type": "line_spec",
+    "type": "loop_clause",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "loop_clause_from",
+          "named": true
+        },
+        {
+          "type": "loop_clause_step",
+          "named": true
+        },
+        {
+          "type": "loop_clause_to",
+          "named": true
+        },
+        {
+          "type": "loop_clause_using_key",
+          "named": true
+        },
+        {
+          "type": "loop_clause_where",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop_clause_from",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -2571,6 +4297,10 @@
         },
         {
           "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
           "named": true
         },
         {
@@ -2593,12 +4323,191 @@
     }
   },
   {
-    "type": "loop_statement",
+    "type": "loop_clause_step",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop_clause_to",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop_clause_using_key",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop_clause_where",
     "named": true,
     "fields": {},
     "children": {
       "multiple": true,
       "required": true,
+      "types": [
+        {
+          "type": "comparison_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop_result",
+    "named": true,
+    "fields": {
+      "result": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "attribute_access_static",
+            "named": true
+          },
+          {
+            "type": "field_symbol_name",
+            "named": true
+          },
+          {
+            "type": "host_variable",
+            "named": true
+          },
+          {
+            "type": "inline_declaration",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "structured_data_object",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "loop_statement",
+    "named": true,
+    "fields": {
+      "target": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "screen",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
       "types": [
         {
           "type": "aliases_declaration",
@@ -2609,19 +4518,7 @@
           "named": true
         },
         {
-          "type": "append_statement_obsolete",
-          "named": true
-        },
-        {
-          "type": "arithmetic_expression",
-          "named": true
-        },
-        {
           "type": "assignment",
-          "named": true
-        },
-        {
-          "type": "attribute_access_static",
           "named": true
         },
         {
@@ -2638,6 +4535,10 @@
         },
         {
           "type": "call_method_static",
+          "named": true
+        },
+        {
+          "type": "call_transaction_statement",
           "named": true
         },
         {
@@ -2689,10 +4590,6 @@
           "named": true
         },
         {
-          "type": "character_literal",
-          "named": true
-        },
-        {
           "type": "check_statement",
           "named": true
         },
@@ -2721,6 +4618,18 @@
           "named": true
         },
         {
+          "type": "collect_statement",
+          "named": true
+        },
+        {
+          "type": "commit_statement",
+          "named": true
+        },
+        {
+          "type": "concatenate_statement",
+          "named": true
+        },
+        {
           "type": "constants_declaration",
           "named": true
         },
@@ -2729,7 +4638,15 @@
           "named": true
         },
         {
+          "type": "create_data_statement",
+          "named": true
+        },
+        {
           "type": "create_object_statement",
+          "named": true
+        },
+        {
+          "type": "delete_statement",
           "named": true
         },
         {
@@ -2745,7 +4662,7 @@
           "named": true
         },
         {
-          "type": "field_symbol_name",
+          "type": "find_statement",
           "named": true
         },
         {
@@ -2757,6 +4674,10 @@
           "named": true
         },
         {
+          "type": "get_parameter_statement",
+          "named": true
+        },
+        {
           "type": "if_statement",
           "named": true
         },
@@ -2765,7 +4686,7 @@
           "named": true
         },
         {
-          "type": "inline_declaration",
+          "type": "insert_statement",
           "named": true
         },
         {
@@ -2773,7 +4694,11 @@
           "named": true
         },
         {
-          "type": "itab",
+          "type": "loop_clause",
+          "named": true
+        },
+        {
+          "type": "loop_result",
           "named": true
         },
         {
@@ -2785,11 +4710,19 @@
           "named": true
         },
         {
-          "type": "name",
+          "type": "modify_statement",
           "named": true
         },
         {
-          "type": "numeric_literal",
+          "type": "move_corresponding_statement",
+          "named": true
+        },
+        {
+          "type": "open_cursor_statement",
+          "named": true
+        },
+        {
+          "type": "open_dataset_statement",
           "named": true
         },
         {
@@ -2809,7 +4742,15 @@
           "named": true
         },
         {
+          "type": "read_dataset_statement",
+          "named": true
+        },
+        {
           "type": "read_table_statement",
+          "named": true
+        },
+        {
+          "type": "replace_statement",
           "named": true
         },
         {
@@ -2817,11 +4758,11 @@
           "named": true
         },
         {
-          "type": "result",
+          "type": "return_statement",
           "named": true
         },
         {
-          "type": "return_statement",
+          "type": "search_statement",
           "named": true
         },
         {
@@ -2837,11 +4778,35 @@
           "named": true
         },
         {
+          "type": "set_parameter_statement",
+          "named": true
+        },
+        {
+          "type": "shift_statement",
+          "named": true
+        },
+        {
+          "type": "sort_statement",
+          "named": true
+        },
+        {
+          "type": "split_statement",
+          "named": true
+        },
+        {
           "type": "statics_declaration",
           "named": true
         },
         {
-          "type": "structured_data_object",
+          "type": "submit_statement",
+          "named": true
+        },
+        {
+          "type": "transfer_statement",
+          "named": true
+        },
+        {
+          "type": "translate_statement",
           "named": true
         },
         {
@@ -2854,6 +4819,10 @@
         },
         {
           "type": "types_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "update_statement",
           "named": true
         },
         {
@@ -2910,10 +4879,6 @@
           "named": true
         },
         {
-          "type": "append_statement_obsolete",
-          "named": true
-        },
-        {
           "type": "assignment",
           "named": true
         },
@@ -2931,6 +4896,10 @@
         },
         {
           "type": "call_method_static",
+          "named": true
+        },
+        {
+          "type": "call_transaction_statement",
           "named": true
         },
         {
@@ -2994,6 +4963,18 @@
           "named": true
         },
         {
+          "type": "collect_statement",
+          "named": true
+        },
+        {
+          "type": "commit_statement",
+          "named": true
+        },
+        {
+          "type": "concatenate_statement",
+          "named": true
+        },
+        {
           "type": "constants_declaration",
           "named": true
         },
@@ -3002,7 +4983,15 @@
           "named": true
         },
         {
+          "type": "create_data_statement",
+          "named": true
+        },
+        {
           "type": "create_object_statement",
+          "named": true
+        },
+        {
+          "type": "delete_statement",
           "named": true
         },
         {
@@ -3018,7 +5007,15 @@
           "named": true
         },
         {
+          "type": "find_statement",
+          "named": true
+        },
+        {
           "type": "form_statement",
+          "named": true
+        },
+        {
+          "type": "get_parameter_statement",
           "named": true
         },
         {
@@ -3030,11 +5027,31 @@
           "named": true
         },
         {
+          "type": "insert_statement",
+          "named": true
+        },
+        {
           "type": "loop_statement",
           "named": true
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "modify_statement",
+          "named": true
+        },
+        {
+          "type": "move_corresponding_statement",
+          "named": true
+        },
+        {
+          "type": "open_cursor_statement",
+          "named": true
+        },
+        {
+          "type": "open_dataset_statement",
           "named": true
         },
         {
@@ -3054,7 +5071,15 @@
           "named": true
         },
         {
+          "type": "read_dataset_statement",
+          "named": true
+        },
+        {
           "type": "read_table_statement",
+          "named": true
+        },
+        {
+          "type": "replace_statement",
           "named": true
         },
         {
@@ -3063,6 +5088,10 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "search_statement",
           "named": true
         },
         {
@@ -3078,7 +5107,35 @@
           "named": true
         },
         {
+          "type": "set_parameter_statement",
+          "named": true
+        },
+        {
+          "type": "shift_statement",
+          "named": true
+        },
+        {
+          "type": "sort_statement",
+          "named": true
+        },
+        {
+          "type": "split_statement",
+          "named": true
+        },
+        {
           "type": "statics_declaration",
+          "named": true
+        },
+        {
+          "type": "submit_statement",
+          "named": true
+        },
+        {
+          "type": "transfer_statement",
+          "named": true
+        },
+        {
+          "type": "translate_statement",
           "named": true
         },
         {
@@ -3091,6 +5148,10 @@
         },
         {
           "type": "types_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "update_statement",
           "named": true
         },
         {
@@ -3277,6 +5338,352 @@
     }
   },
   {
+    "type": "mode_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "modify_from_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "modify_part",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "modify_from_clause",
+          "named": true
+        },
+        {
+          "type": "modify_table_clause",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "modify_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "modify_part",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "modify_table_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "move_corresponding_expand_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "move_corresponding_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "move_corresponding_expand_clause",
+          "named": true
+        },
+        {
+          "type": "move_corresponding_to_clause",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "move_corresponding_to_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "open_cursor_for",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "select_statement_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "open_cursor_hold",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "open_cursor_statement",
+    "named": true,
+    "fields": {
+      "cursor": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "open_cursor_for",
+          "named": true
+        },
+        {
+          "type": "open_cursor_hold",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "open_dataset_for_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "open_dataset_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "open_dataset_for_clause",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "parameter_binding",
     "named": true,
     "fields": {
@@ -3298,6 +5705,10 @@
           },
           {
             "type": "field_symbol_name",
+            "named": true
+          },
+          {
+            "type": "host_variable",
             "named": true
           },
           {
@@ -3350,6 +5761,41 @@
     }
   },
   {
+    "type": "parameter_field_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "parameter_list",
     "named": true,
     "fields": {},
@@ -3371,6 +5817,10 @@
         },
         {
           "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
           "named": true
         },
         {
@@ -3507,10 +5957,6 @@
           "named": true
         },
         {
-          "type": "append_statement_obsolete",
-          "named": true
-        },
-        {
           "type": "assignment",
           "named": true
         },
@@ -3528,6 +5974,10 @@
         },
         {
           "type": "call_method_static",
+          "named": true
+        },
+        {
+          "type": "call_transaction_statement",
           "named": true
         },
         {
@@ -3607,6 +6057,18 @@
           "named": true
         },
         {
+          "type": "collect_statement",
+          "named": true
+        },
+        {
+          "type": "commit_statement",
+          "named": true
+        },
+        {
+          "type": "concatenate_statement",
+          "named": true
+        },
+        {
           "type": "constants_declaration",
           "named": true
         },
@@ -3615,7 +6077,15 @@
           "named": true
         },
         {
+          "type": "create_data_statement",
+          "named": true
+        },
+        {
           "type": "create_object_statement",
+          "named": true
+        },
+        {
+          "type": "delete_statement",
           "named": true
         },
         {
@@ -3631,6 +6101,10 @@
           "named": true
         },
         {
+          "type": "find_statement",
+          "named": true
+        },
+        {
           "type": "form_statement",
           "named": true
         },
@@ -3639,11 +6113,19 @@
           "named": true
         },
         {
+          "type": "get_parameter_statement",
+          "named": true
+        },
+        {
           "type": "if_statement",
           "named": true
         },
         {
           "type": "include_statement",
+          "named": true
+        },
+        {
+          "type": "insert_statement",
           "named": true
         },
         {
@@ -3656,6 +6138,22 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "modify_statement",
+          "named": true
+        },
+        {
+          "type": "move_corresponding_statement",
+          "named": true
+        },
+        {
+          "type": "open_cursor_statement",
+          "named": true
+        },
+        {
+          "type": "open_dataset_statement",
           "named": true
         },
         {
@@ -3675,7 +6173,15 @@
           "named": true
         },
         {
+          "type": "read_dataset_statement",
+          "named": true
+        },
+        {
           "type": "read_table_statement",
+          "named": true
+        },
+        {
+          "type": "replace_statement",
           "named": true
         },
         {
@@ -3684,6 +6190,10 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "search_statement",
           "named": true
         },
         {
@@ -3699,7 +6209,35 @@
           "named": true
         },
         {
+          "type": "set_parameter_statement",
+          "named": true
+        },
+        {
+          "type": "shift_statement",
+          "named": true
+        },
+        {
+          "type": "sort_statement",
+          "named": true
+        },
+        {
+          "type": "split_statement",
+          "named": true
+        },
+        {
           "type": "statics_declaration",
+          "named": true
+        },
+        {
+          "type": "submit_statement",
+          "named": true
+        },
+        {
+          "type": "transfer_statement",
+          "named": true
+        },
+        {
+          "type": "translate_statement",
           "named": true
         },
         {
@@ -3712,6 +6250,10 @@
         },
         {
           "type": "types_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "update_statement",
           "named": true
         },
         {
@@ -3930,7 +6472,89 @@
     }
   },
   {
-    "type": "read_table_statement",
+    "type": "read_dataset_into_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "read_dataset_length_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "read_dataset_statement",
     "named": true,
     "fields": {},
     "children": {
@@ -3946,15 +6570,289 @@
           "named": true
         },
         {
+          "type": "host_variable",
+          "named": true
+        },
+        {
           "type": "inline_declaration",
           "named": true
         },
         {
-          "type": "line_spec",
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "read_dataset_into_clause",
+          "named": true
+        },
+        {
+          "type": "read_dataset_length_clause",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "read_table_binary_search",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "read_table_from",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
           "named": true
         },
         {
           "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "read_table_index",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "read_table_result",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "read_table_statement",
+    "named": true,
+    "fields": {
+      "itab": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "read_table_binary_search",
+          "named": true
+        },
+        {
+          "type": "read_table_from",
+          "named": true
+        },
+        {
+          "type": "read_table_index",
+          "named": true
+        },
+        {
+          "type": "read_table_result",
+          "named": true
+        },
+        {
+          "type": "read_table_with_key",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "read_table_with_key",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "replace_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "case_clause",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "mode_clause",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
           "named": true
         },
         {
@@ -3974,37 +6872,6 @@
       "types": [
         {
           "type": "name",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "result",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "attribute_access_static",
-          "named": true
-        },
-        {
-          "type": "field_symbol_name",
-          "named": true
-        },
-        {
-          "type": "inline_declaration",
-          "named": true
-        },
-        {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "structured_data_object",
           "named": true
         }
       ]
@@ -4061,6 +6928,96 @@
     }
   },
   {
+    "type": "search_for_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "search_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "mode_clause",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "search_for_clause",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "select_loop_statement",
     "named": true,
     "fields": {},
@@ -4074,10 +7031,6 @@
         },
         {
           "type": "append_statement",
-          "named": true
-        },
-        {
-          "type": "append_statement_obsolete",
           "named": true
         },
         {
@@ -4098,6 +7051,10 @@
         },
         {
           "type": "call_method_static",
+          "named": true
+        },
+        {
+          "type": "call_transaction_statement",
           "named": true
         },
         {
@@ -4161,6 +7118,18 @@
           "named": true
         },
         {
+          "type": "collect_statement",
+          "named": true
+        },
+        {
+          "type": "commit_statement",
+          "named": true
+        },
+        {
+          "type": "concatenate_statement",
+          "named": true
+        },
+        {
           "type": "constants_declaration",
           "named": true
         },
@@ -4169,7 +7138,15 @@
           "named": true
         },
         {
+          "type": "create_data_statement",
+          "named": true
+        },
+        {
           "type": "create_object_statement",
+          "named": true
+        },
+        {
+          "type": "delete_statement",
           "named": true
         },
         {
@@ -4185,7 +7162,15 @@
           "named": true
         },
         {
+          "type": "find_statement",
+          "named": true
+        },
+        {
           "type": "form_statement",
+          "named": true
+        },
+        {
+          "type": "get_parameter_statement",
           "named": true
         },
         {
@@ -4197,11 +7182,31 @@
           "named": true
         },
         {
+          "type": "insert_statement",
+          "named": true
+        },
+        {
           "type": "loop_statement",
           "named": true
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "modify_statement",
+          "named": true
+        },
+        {
+          "type": "move_corresponding_statement",
+          "named": true
+        },
+        {
+          "type": "open_cursor_statement",
+          "named": true
+        },
+        {
+          "type": "open_dataset_statement",
           "named": true
         },
         {
@@ -4221,7 +7226,15 @@
           "named": true
         },
         {
+          "type": "read_dataset_statement",
+          "named": true
+        },
+        {
           "type": "read_table_statement",
+          "named": true
+        },
+        {
+          "type": "replace_statement",
           "named": true
         },
         {
@@ -4230,6 +7243,10 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "search_statement",
           "named": true
         },
         {
@@ -4249,7 +7266,35 @@
           "named": true
         },
         {
+          "type": "set_parameter_statement",
+          "named": true
+        },
+        {
+          "type": "shift_statement",
+          "named": true
+        },
+        {
+          "type": "sort_statement",
+          "named": true
+        },
+        {
+          "type": "split_statement",
+          "named": true
+        },
+        {
           "type": "statics_declaration",
+          "named": true
+        },
+        {
+          "type": "submit_statement",
+          "named": true
+        },
+        {
+          "type": "transfer_statement",
+          "named": true
+        },
+        {
+          "type": "translate_statement",
           "named": true
         },
         {
@@ -4262,6 +7307,10 @@
         },
         {
           "type": "types_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "update_statement",
           "named": true
         },
         {
@@ -4289,6 +7338,10 @@
         },
         {
           "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
           "named": true
         },
         {
@@ -4330,6 +7383,10 @@
           },
           {
             "type": "field_symbol_name",
+            "named": true
+          },
+          {
+            "type": "host_variable",
             "named": true
           },
           {
@@ -4503,6 +7560,291 @@
         },
         {
           "type": "select_single",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "set_parameter_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "parameter_field_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "shift_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "mode_clause",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sort_as_text_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sort_by_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sort_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "sort_as_text_clause",
+          "named": true
+        },
+        {
+          "type": "sort_by_clause",
+          "named": true
+        },
+        {
+          "type": "sort_order_clause",
+          "named": true
+        },
+        {
+          "type": "sort_stable_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sort_order_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sort_stable_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "sort_statement",
+    "named": true,
+    "fields": {
+      "itab": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "sort_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "split_at_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "split_into_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "split_statement",
+    "named": true,
+    "fields": {
+      "source": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "arithmetic_expression",
+            "named": true
+          },
+          {
+            "type": "attribute_access_static",
+            "named": true
+          },
+          {
+            "type": "character_literal",
+            "named": true
+          },
+          {
+            "type": "field_symbol_name",
+            "named": true
+          },
+          {
+            "type": "host_variable",
+            "named": true
+          },
+          {
+            "type": "inline_declaration",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "numeric_literal",
+            "named": true
+          },
+          {
+            "type": "structured_data_object",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "split_at_clause",
+          "named": true
+        },
+        {
+          "type": "split_into_clause",
           "named": true
         }
       ]
@@ -4816,6 +8158,10 @@
           "named": true
         },
         {
+          "type": "host_variable",
+          "named": true
+        },
+        {
           "type": "inline_declaration",
           "named": true
         },
@@ -4904,6 +8250,10 @@
           "named": true
         },
         {
+          "type": "host_variable",
+          "named": true
+        },
+        {
           "type": "inline_declaration",
           "named": true
         },
@@ -4954,6 +8304,10 @@
           "named": true
         },
         {
+          "type": "host_variable",
+          "named": true
+        },
+        {
           "type": "inline_declaration",
           "named": true
         },
@@ -4990,6 +8344,10 @@
         },
         {
           "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
           "named": true
         },
         {
@@ -5133,6 +8491,99 @@
     }
   },
   {
+    "type": "submit_selection_set_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "submit_selection_sets_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "submit_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "submit_selection_set_clause",
+          "named": true
+        },
+        {
+          "type": "submit_selection_sets_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "table_expression",
     "named": true,
     "fields": {
@@ -5171,6 +8622,10 @@
             "named": true
           },
           {
+            "type": "host_variable",
+            "named": true
+          },
+          {
             "type": "inline_declaration",
             "named": true
           },
@@ -5191,6 +8646,226 @@
     }
   },
   {
+    "type": "transfer_length_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "transfer_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        },
+        {
+          "type": "transfer_length_clause",
+          "named": true
+        },
+        {
+          "type": "transfer_to_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "transfer_to_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "translate_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        },
+        {
+          "type": "translate_to_clause",
+          "named": true
+        },
+        {
+          "type": "translate_using_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "translate_to_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "translate_using_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "try_block",
     "named": true,
     "fields": {},
@@ -5204,10 +8879,6 @@
         },
         {
           "type": "append_statement",
-          "named": true
-        },
-        {
-          "type": "append_statement_obsolete",
           "named": true
         },
         {
@@ -5228,6 +8899,10 @@
         },
         {
           "type": "call_method_static",
+          "named": true
+        },
+        {
+          "type": "call_transaction_statement",
           "named": true
         },
         {
@@ -5307,6 +8982,18 @@
           "named": true
         },
         {
+          "type": "collect_statement",
+          "named": true
+        },
+        {
+          "type": "commit_statement",
+          "named": true
+        },
+        {
+          "type": "concatenate_statement",
+          "named": true
+        },
+        {
           "type": "constants_declaration",
           "named": true
         },
@@ -5315,7 +9002,15 @@
           "named": true
         },
         {
+          "type": "create_data_statement",
+          "named": true
+        },
+        {
           "type": "create_object_statement",
+          "named": true
+        },
+        {
+          "type": "delete_statement",
           "named": true
         },
         {
@@ -5331,6 +9026,10 @@
           "named": true
         },
         {
+          "type": "find_statement",
+          "named": true
+        },
+        {
           "type": "form_statement",
           "named": true
         },
@@ -5339,11 +9038,19 @@
           "named": true
         },
         {
+          "type": "get_parameter_statement",
+          "named": true
+        },
+        {
           "type": "if_statement",
           "named": true
         },
         {
           "type": "include_statement",
+          "named": true
+        },
+        {
+          "type": "insert_statement",
           "named": true
         },
         {
@@ -5356,6 +9063,22 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "modify_statement",
+          "named": true
+        },
+        {
+          "type": "move_corresponding_statement",
+          "named": true
+        },
+        {
+          "type": "open_cursor_statement",
+          "named": true
+        },
+        {
+          "type": "open_dataset_statement",
           "named": true
         },
         {
@@ -5375,7 +9098,15 @@
           "named": true
         },
         {
+          "type": "read_dataset_statement",
+          "named": true
+        },
+        {
           "type": "read_table_statement",
+          "named": true
+        },
+        {
+          "type": "replace_statement",
           "named": true
         },
         {
@@ -5384,6 +9115,10 @@
         },
         {
           "type": "return_statement",
+          "named": true
+        },
+        {
+          "type": "search_statement",
           "named": true
         },
         {
@@ -5399,7 +9134,35 @@
           "named": true
         },
         {
+          "type": "set_parameter_statement",
+          "named": true
+        },
+        {
+          "type": "shift_statement",
+          "named": true
+        },
+        {
+          "type": "sort_statement",
+          "named": true
+        },
+        {
+          "type": "split_statement",
+          "named": true
+        },
+        {
           "type": "statics_declaration",
+          "named": true
+        },
+        {
+          "type": "submit_statement",
+          "named": true
+        },
+        {
+          "type": "transfer_statement",
+          "named": true
+        },
+        {
+          "type": "translate_statement",
           "named": true
         },
         {
@@ -5412,6 +9175,10 @@
         },
         {
           "type": "types_structure_declaration",
+          "named": true
+        },
+        {
+          "type": "update_statement",
           "named": true
         },
         {
@@ -5544,6 +9311,10 @@
           "named": true
         },
         {
+          "type": "host_variable",
+          "named": true
+        },
+        {
           "type": "inline_declaration",
           "named": true
         },
@@ -5561,6 +9332,235 @@
         },
         {
           "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "update_from_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "update_indicators_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "update_part",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        },
+        {
+          "type": "update_from_clause",
+          "named": true
+        },
+        {
+          "type": "update_indicators_clause",
+          "named": true
+        },
+        {
+          "type": "update_set_clause",
+          "named": true
+        },
+        {
+          "type": "update_table_clause",
+          "named": true
+        },
+        {
+          "type": "update_where_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "update_set_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comparison_expression",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "update_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "update_part",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "update_table_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "update_where_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comparison_expression",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         }
       ]
@@ -5633,6 +9633,10 @@
         },
         {
           "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
           "named": true
         },
         {
@@ -5743,6 +9747,10 @@
     "named": false
   },
   {
+    "type": "accepting",
+    "named": false
+  },
+  {
     "type": "aliases",
     "named": false
   },
@@ -5775,11 +9783,19 @@
     "named": false
   },
   {
+    "type": "ascending",
+    "named": false
+  },
+  {
     "type": "assigning",
     "named": false
   },
   {
     "type": "at",
+    "named": false
+  },
+  {
+    "type": "authority-check",
     "named": false
   },
   {
@@ -5807,7 +9823,15 @@
     "named": false
   },
   {
+    "type": "byte",
+    "named": false
+  },
+  {
     "type": "call",
+    "named": false
+  },
+  {
+    "type": "case",
     "named": false
   },
   {
@@ -5816,6 +9840,10 @@
   },
   {
     "type": "changing",
+    "named": false
+  },
+  {
+    "type": "character",
     "named": false
   },
   {
@@ -5851,8 +9879,20 @@
     "named": false
   },
   {
+    "type": "collect",
+    "named": false
+  },
+  {
+    "type": "commit",
+    "named": false
+  },
+  {
     "type": "component_name",
     "named": true
+  },
+  {
+    "type": "concatenate",
+    "named": false
   },
   {
     "type": "constants",
@@ -5883,7 +9923,15 @@
     "named": false
   },
   {
+    "type": "cursor",
+    "named": false
+  },
+  {
     "type": "data",
+    "named": false
+  },
+  {
+    "type": "dataset",
     "named": false
   },
   {
@@ -5899,11 +9947,23 @@
     "named": false
   },
   {
+    "type": "delete",
+    "named": false
+  },
+  {
     "type": "desc",
     "named": false
   },
   {
+    "type": "descending",
+    "named": false
+  },
+  {
     "type": "distinct",
+    "named": false
+  },
+  {
+    "type": "duplicate",
     "named": false
   },
   {
@@ -5967,6 +10027,10 @@
     "named": false
   },
   {
+    "type": "exception-table",
+    "named": false
+  },
+  {
     "type": "exceptions",
     "named": false
   },
@@ -5975,11 +10039,19 @@
     "named": false
   },
   {
+    "type": "expanding",
+    "named": false
+  },
+  {
     "type": "exporting",
     "named": false
   },
   {
     "type": "fail",
+    "named": false
+  },
+  {
+    "type": "field",
     "named": false
   },
   {
@@ -6000,6 +10072,10 @@
   },
   {
     "type": "final",
+    "named": false
+  },
+  {
+    "type": "find",
     "named": false
   },
   {
@@ -6031,11 +10107,19 @@
     "named": false
   },
   {
+    "type": "get",
+    "named": false
+  },
+  {
     "type": "global",
     "named": false
   },
   {
     "type": "group",
+    "named": false
+  },
+  {
+    "type": "handle",
     "named": false
   },
   {
@@ -6047,11 +10131,23 @@
     "named": false
   },
   {
+    "type": "hold",
+    "named": false
+  },
+  {
+    "type": "id",
+    "named": false
+  },
+  {
     "type": "if",
     "named": false
   },
   {
     "type": "ignore",
+    "named": false
+  },
+  {
+    "type": "ignoring",
     "named": false
   },
   {
@@ -6071,6 +10167,14 @@
     "named": false
   },
   {
+    "type": "index",
+    "named": false
+  },
+  {
+    "type": "indicators",
+    "named": false
+  },
+  {
     "type": "inheriting",
     "named": false
   },
@@ -6080,6 +10184,14 @@
   },
   {
     "type": "inner",
+    "named": false
+  },
+  {
+    "type": "input",
+    "named": false
+  },
+  {
+    "type": "insert",
     "named": false
   },
   {
@@ -6095,10 +10207,6 @@
     "named": false
   },
   {
-    "type": "itab",
-    "named": true
-  },
-  {
     "type": "join",
     "named": false
   },
@@ -6107,7 +10215,15 @@
     "named": false
   },
   {
+    "type": "keys",
+    "named": false
+  },
+  {
     "type": "left",
+    "named": false
+  },
+  {
+    "type": "length",
     "named": false
   },
   {
@@ -6127,7 +10243,15 @@
     "named": false
   },
   {
+    "type": "lower",
+    "named": false
+  },
+  {
     "type": "max",
+    "named": false
+  },
+  {
+    "type": "maximum",
     "named": false
   },
   {
@@ -6147,11 +10271,27 @@
     "named": false
   },
   {
+    "type": "mode",
+    "named": false
+  },
+  {
+    "type": "modify",
+    "named": false
+  },
+  {
+    "type": "move-corresponding",
+    "named": false
+  },
+  {
     "type": "name",
     "named": true
   },
   {
     "type": "ne",
+    "named": false
+  },
+  {
+    "type": "nested",
     "named": false
   },
   {
@@ -6171,6 +10311,10 @@
     "named": false
   },
   {
+    "type": "occurrences",
+    "named": false
+  },
+  {
     "type": "of",
     "named": false
   },
@@ -6180,6 +10324,10 @@
   },
   {
     "type": "on",
+    "named": false
+  },
+  {
+    "type": "open",
     "named": false
   },
   {
@@ -6195,7 +10343,19 @@
     "named": false
   },
   {
+    "type": "output",
+    "named": false
+  },
+  {
     "type": "package",
+    "named": false
+  },
+  {
+    "type": "parameter",
+    "named": false
+  },
+  {
+    "type": "parameter-table",
     "named": false
   },
   {
@@ -6251,7 +10411,15 @@
     "named": false
   },
   {
+    "type": "replace",
+    "named": false
+  },
+  {
     "type": "report",
+    "named": false
+  },
+  {
+    "type": "respecting",
     "named": false
   },
   {
@@ -6275,6 +10443,10 @@
     "named": false
   },
   {
+    "type": "screen",
+    "named": false
+  },
+  {
     "type": "search",
     "named": false
   },
@@ -6291,7 +10463,23 @@
     "named": false
   },
   {
+    "type": "selection-set",
+    "named": false
+  },
+  {
+    "type": "selection-sets",
+    "named": false
+  },
+  {
+    "type": "set",
+    "named": false
+  },
+  {
     "type": "shared",
+    "named": false
+  },
+  {
+    "type": "shift",
     "named": false
   },
   {
@@ -6303,11 +10491,23 @@
     "named": false
   },
   {
+    "type": "sort",
+    "named": false
+  },
+  {
     "type": "sorted",
     "named": false
   },
   {
     "type": "specified",
+    "named": false
+  },
+  {
+    "type": "split",
+    "named": false
+  },
+  {
+    "type": "stable",
     "named": false
   },
   {
@@ -6323,12 +10523,20 @@
     "named": false
   },
   {
+    "type": "structure",
+    "named": false
+  },
+  {
     "type": "structure_name",
     "named": true
   },
   {
     "type": "strucure_name",
     "named": true
+  },
+  {
+    "type": "submit",
+    "named": false
   },
   {
     "type": "sum",
@@ -6339,7 +10547,27 @@
     "named": false
   },
   {
+    "type": "tables",
+    "named": false
+  },
+  {
+    "type": "text",
+    "named": false
+  },
+  {
     "type": "to",
+    "named": false
+  },
+  {
+    "type": "transaction",
+    "named": false
+  },
+  {
+    "type": "transfer",
+    "named": false
+  },
+  {
+    "type": "translate",
     "named": false
   },
   {
@@ -6371,7 +10599,23 @@
     "named": false
   },
   {
+    "type": "upper",
+    "named": false
+  },
+  {
+    "type": "using",
+    "named": false
+  },
+  {
     "type": "value",
+    "named": false
+  },
+  {
+    "type": "values",
+    "named": false
+  },
+  {
+    "type": "wait",
     "named": false
   },
   {
@@ -6380,6 +10624,14 @@
   },
   {
     "type": "with",
+    "named": false
+  },
+  {
+    "type": "without",
+    "named": false
+  },
+  {
+    "type": "work",
     "named": false
   },
   {
