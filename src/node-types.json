@@ -510,6 +510,18 @@
           "named": true
         },
         {
+          "type": "chained_parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_select_options_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_statics_declaration",
+          "named": true
+        },
+        {
           "type": "chained_structure_declaration",
           "named": true
         },
@@ -598,6 +610,10 @@
           "named": true
         },
         {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
           "type": "raise_exception_statement",
           "named": true
         },
@@ -622,7 +638,15 @@
           "named": true
         },
         {
+          "type": "select_options_declaration",
+          "named": true
+        },
+        {
           "type": "select_statement",
+          "named": true
+        },
+        {
+          "type": "statics_declaration",
           "named": true
         },
         {
@@ -709,6 +733,51 @@
       "types": [
         {
           "type": "field_symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "chained_parameters_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "parameter_entry",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "chained_select_options_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "select_option_entry",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "chained_statics_declaration",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "static_entry",
           "named": true
         }
       ]
@@ -1467,6 +1536,18 @@
           "named": true
         },
         {
+          "type": "chained_parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_select_options_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_statics_declaration",
+          "named": true
+        },
+        {
           "type": "chained_structure_declaration",
           "named": true
         },
@@ -1531,6 +1612,10 @@
           "named": true
         },
         {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
           "type": "raise_exception_statement",
           "named": true
         },
@@ -1555,7 +1640,15 @@
           "named": true
         },
         {
+          "type": "select_options_declaration",
+          "named": true
+        },
+        {
           "type": "select_statement",
+          "named": true
+        },
+        {
+          "type": "statics_declaration",
           "named": true
         },
         {
@@ -1652,6 +1745,18 @@
           "named": true
         },
         {
+          "type": "chained_parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_select_options_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_statics_declaration",
+          "named": true
+        },
+        {
           "type": "chained_structure_declaration",
           "named": true
         },
@@ -1716,6 +1821,10 @@
           "named": true
         },
         {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
           "type": "raise_exception_statement",
           "named": true
         },
@@ -1740,7 +1849,15 @@
           "named": true
         },
         {
+          "type": "select_options_declaration",
+          "named": true
+        },
+        {
           "type": "select_statement",
+          "named": true
+        },
+        {
+          "type": "statics_declaration",
           "named": true
         },
         {
@@ -1832,6 +1949,18 @@
         },
         {
           "type": "chained_field_symbol_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_select_options_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_statics_declaration",
           "named": true
         },
         {
@@ -1931,6 +2060,10 @@
           "named": true
         },
         {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
           "type": "raise_exception_statement",
           "named": true
         },
@@ -1955,7 +2088,15 @@
           "named": true
         },
         {
+          "type": "select_options_declaration",
+          "named": true
+        },
+        {
           "type": "select_statement",
+          "named": true
+        },
+        {
+          "type": "statics_declaration",
           "named": true
         },
         {
@@ -2198,6 +2339,18 @@
           "named": true
         },
         {
+          "type": "chained_parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_select_options_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_statics_declaration",
+          "named": true
+        },
+        {
           "type": "chained_structure_declaration",
           "named": true
         },
@@ -2310,6 +2463,10 @@
           "named": true
         },
         {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
           "type": "raise_exception_statement",
           "named": true
         },
@@ -2338,7 +2495,15 @@
           "named": true
         },
         {
+          "type": "select_options_declaration",
+          "named": true
+        },
+        {
           "type": "select_statement",
+          "named": true
+        },
+        {
+          "type": "statics_declaration",
           "named": true
         },
         {
@@ -2439,6 +2604,18 @@
           "named": true
         },
         {
+          "type": "chained_parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_select_options_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_statics_declaration",
+          "named": true
+        },
+        {
           "type": "chained_structure_declaration",
           "named": true
         },
@@ -2503,6 +2680,10 @@
           "named": true
         },
         {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
           "type": "raise_exception_statement",
           "named": true
         },
@@ -2527,7 +2708,15 @@
           "named": true
         },
         {
+          "type": "select_options_declaration",
+          "named": true
+        },
+        {
           "type": "select_statement",
+          "named": true
+        },
+        {
+          "type": "statics_declaration",
           "named": true
         },
         {
@@ -2780,6 +2969,25 @@
     }
   },
   {
+    "type": "parameter_entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "typing",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "parameter_list",
     "named": true,
     "fields": {},
@@ -2827,6 +3035,32 @@
     }
   },
   {
+    "type": "parameters_declaration",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "typing": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "typing",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "private_section",
     "named": true,
     "fields": {},
@@ -2856,6 +3090,10 @@
         },
         {
           "type": "method_redefinition",
+          "named": true
+        },
+        {
+          "type": "statics_declaration",
           "named": true
         },
         {
@@ -2912,6 +3150,18 @@
         },
         {
           "type": "chained_field_symbol_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_select_options_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_statics_declaration",
           "named": true
         },
         {
@@ -3003,6 +3253,10 @@
           "named": true
         },
         {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
           "type": "raise_exception_statement",
           "named": true
         },
@@ -3027,7 +3281,15 @@
           "named": true
         },
         {
+          "type": "select_options_declaration",
+          "named": true
+        },
+        {
           "type": "select_statement",
+          "named": true
+        },
+        {
+          "type": "statics_declaration",
           "named": true
         },
         {
@@ -3086,6 +3348,10 @@
           "named": true
         },
         {
+          "type": "statics_declaration",
+          "named": true
+        },
+        {
           "type": "types_declaration",
           "named": true
         },
@@ -3126,6 +3392,10 @@
         },
         {
           "type": "method_redefinition",
+          "named": true
+        },
+        {
+          "type": "statics_declaration",
           "named": true
         },
         {
@@ -3370,6 +3640,18 @@
           "named": true
         },
         {
+          "type": "chained_parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_select_options_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_statics_declaration",
+          "named": true
+        },
+        {
           "type": "chained_structure_declaration",
           "named": true
         },
@@ -3434,6 +3716,10 @@
           "named": true
         },
         {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
           "type": "raise_exception_statement",
           "named": true
         },
@@ -3458,11 +3744,19 @@
           "named": true
         },
         {
+          "type": "select_options_declaration",
+          "named": true
+        },
+        {
           "type": "select_statement",
           "named": true
         },
         {
           "type": "select_statement_body",
+          "named": true
+        },
+        {
+          "type": "statics_declaration",
           "named": true
         },
         {
@@ -3486,6 +3780,79 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "select_option_entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "select_options_declaration",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "target": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "attribute_access_static",
+            "named": true
+          },
+          {
+            "type": "field_symbol_name",
+            "named": true
+          },
+          {
+            "type": "inline_declaration",
+            "named": true
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "structured_data_object",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -4171,6 +4538,51 @@
     }
   },
   {
+    "type": "static_entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "typing",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "statics_declaration",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "typing": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "typing",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "structure_component",
     "named": true,
     "fields": {},
@@ -4330,6 +4742,18 @@
           "named": true
         },
         {
+          "type": "chained_parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_select_options_declaration",
+          "named": true
+        },
+        {
+          "type": "chained_statics_declaration",
+          "named": true
+        },
+        {
           "type": "chained_structure_declaration",
           "named": true
         },
@@ -4418,6 +4842,10 @@
           "named": true
         },
         {
+          "type": "parameters_declaration",
+          "named": true
+        },
+        {
           "type": "raise_exception_statement",
           "named": true
         },
@@ -4442,7 +4870,15 @@
           "named": true
         },
         {
+          "type": "select_options_declaration",
+          "named": true
+        },
+        {
           "type": "select_statement",
+          "named": true
+        },
+        {
+          "type": "statics_declaration",
           "named": true
         },
         {
@@ -5215,6 +5651,10 @@
     "named": false
   },
   {
+    "type": "parameters",
+    "named": false
+  },
+  {
     "type": "private",
     "named": false
   },
@@ -5295,6 +5735,10 @@
     "named": false
   },
   {
+    "type": "select-options",
+    "named": false
+  },
+  {
     "type": "shared",
     "named": false
   },
@@ -5316,6 +5760,10 @@
   },
   {
     "type": "standard",
+    "named": false
+  },
+  {
+    "type": "statics",
     "named": false
   },
   {

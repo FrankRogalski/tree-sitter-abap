@@ -94,6 +94,24 @@ module.exports = {
 
   variable: $ => seq($.name, alias($._data_object_typing, $.typing)),
 
+  statics_declaration: $ =>
+    seq(
+      kw("statics"),
+      field("name", $.name),
+      field("typing", alias($._data_object_typing, $.typing)),
+      "."
+    ),
+
+  chained_statics_declaration: $ =>
+    seq(
+      kw("statics"),
+      ":",
+      repeat1(choice($.static_entry, seq(",", $.static_entry))),
+      "."
+    ),
+
+  static_entry: $ => seq($.name, alias($._data_object_typing, $.typing)),
+
   chained_structure_declaration: $ =>
     seq(
       kw("data"),
@@ -180,4 +198,41 @@ module.exports = {
     ),
 
   field_symbol: $ => seq(alias($.field_symbol_name, $.name), $._typing),
+
+  parameters_declaration: $ =>
+    seq(
+      kw("parameters"),
+      field("name", $.name),
+      field("typing", alias($._data_object_typing, $.typing)),
+      "."
+    ),
+
+  chained_parameters_declaration: $ =>
+    seq(
+      kw("parameters"),
+      ":",
+      repeat1(choice($.parameter_entry, seq(",", $.parameter_entry))),
+      "."
+    ),
+
+  parameter_entry: $ => seq($.name, alias($._data_object_typing, $.typing)),
+
+  select_options_declaration: $ =>
+    seq(
+      kw("select-options"),
+      field("name", $.name),
+      kw("for"),
+      field("target", $._data_object),
+      "."
+    ),
+
+  chained_select_options_declaration: $ =>
+    seq(
+      kw("select-options"),
+      ":",
+      repeat1(choice($.select_option_entry, seq(",", $.select_option_entry))),
+      "."
+    ),
+
+  select_option_entry: $ => seq($.name, kw("for"), $._data_object),
 };
