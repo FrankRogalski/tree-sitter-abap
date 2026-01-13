@@ -49,6 +49,8 @@ module.exports = {
       $.while_statement,
       $.at_statement,
       $.on_change_statement,
+      $.module_statement,
+      $.chain_statement,
       $.return_statement,
       $.check_statement,
       $.method_declaration_class,
@@ -411,6 +413,36 @@ module.exports = {
       kw("endon"),
       ".",
     ),
+
+  module_statement: $ =>
+    seq(
+      kw("module"),
+      $.name,
+      optional(choice(kw("input"), kw("output"))),
+      ".",
+      repeat($._statement),
+      kw("endmodule"),
+      ".",
+    ),
+
+  chain_statement: $ =>
+    seq(
+      kw("chain"),
+      ".",
+      repeat($.chain_field),
+      optional($.chain_end_clause),
+      repeat($._statement),
+      kw("endchain"),
+      ".",
+    ),
+
+  chain_field: $ =>
+    choice(
+      seq(kw("field"), $.name, optional(kw("module")), "."),
+      seq(kw("field"), $.name, "."),
+    ),
+
+  chain_end_clause: $ => seq(kw("end"), kw("chain"), "."),
 
   exit_statement: $ => seq(kw("exit"), "."),
 
