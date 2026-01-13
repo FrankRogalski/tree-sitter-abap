@@ -929,6 +929,10 @@
           "named": true
         },
         {
+          "type": "perform_statement",
+          "named": true
+        },
+        {
           "type": "program_statement",
           "named": true
         },
@@ -3056,6 +3060,10 @@
           "named": true
         },
         {
+          "type": "perform_statement",
+          "named": true
+        },
+        {
           "type": "program_statement",
           "named": true
         },
@@ -3386,6 +3394,10 @@
         },
         {
           "type": "parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "perform_statement",
           "named": true
         },
         {
@@ -3798,6 +3810,10 @@
         },
         {
           "type": "parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "perform_statement",
           "named": true
         },
         {
@@ -4648,6 +4664,10 @@
           "named": true
         },
         {
+          "type": "perform_statement",
+          "named": true
+        },
+        {
           "type": "program_statement",
           "named": true
         },
@@ -5305,6 +5325,10 @@
         },
         {
           "type": "parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "perform_statement",
           "named": true
         },
         {
@@ -6166,6 +6190,22 @@
     }
   },
   {
+    "type": "perform_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "private_section",
     "named": true,
     "fields": {},
@@ -6455,6 +6495,10 @@
         },
         {
           "type": "parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "perform_statement",
           "named": true
         },
         {
@@ -7597,6 +7641,10 @@
         },
         {
           "type": "parameters_declaration",
+          "named": true
+        },
+        {
+          "type": "perform_statement",
           "named": true
         },
         {
@@ -9351,6 +9399,10 @@
           "named": true
         },
         {
+          "type": "perform_statement",
+          "named": true
+        },
+        {
           "type": "program_statement",
           "named": true
         },
@@ -10633,6 +10685,10 @@
   },
   {
     "type": "parameters",
+    "named": false
+  },
+  {
+    "type": "perform",
     "named": false
   },
   {

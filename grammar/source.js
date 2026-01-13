@@ -1,6 +1,6 @@
 const declarations = require("./parts/declarations");
 const sql = require("./parts/sql");
-const {kw} = require("./helpers");
+const { kw } = require("./helpers");
 
 module.exports = {
   name: "abap",
@@ -10,9 +10,9 @@ module.exports = {
   extras: $ => [/\s+/, $.eol_comment, $.bol_comment],
 
   conflicts: $ => [
-    [ $.select_statement, $.select_loop_statement ],
-    [ $._data_object, $.host_variable ],
-    [ $.loop_statement, $.loop_block_statement ]
+    [$.select_statement, $.select_loop_statement],
+    [$._data_object, $.host_variable],
+    [$.loop_statement, $.loop_block_statement],
   ],
 
   rules: {
@@ -28,7 +28,7 @@ module.exports = {
         $.class_local_friend_publication,
         $.interface_declaration,
         $.function_implementation,
-        $._implementation_statement
+        $._implementation_statement,
       ),
 
     _implementation_statement: $ =>
@@ -59,6 +59,7 @@ module.exports = {
         $.chained_field_symbol_declaration,
         $.exit_statement,
         $.continue_statement,
+        $.perform_statement,
         $.report_statement,
         $.program_statement,
         $.if_statement,
@@ -106,7 +107,7 @@ module.exports = {
         $.include_statement,
         $.macro_include,
         $.raise_statement,
-        $.form_statement
+        $.form_statement,
       ),
 
     class_declaration: $ =>
@@ -116,7 +117,7 @@ module.exports = {
         kw("definition"),
         optional(kw("public")),
         optional(
-          seq(kw("inheriting"), kw("from"), field("superclass", $.name))
+          seq(kw("inheriting"), kw("from"), field("superclass", $.name)),
         ),
         optional(kw("abstract")),
         optional(kw("final")),
@@ -126,15 +127,15 @@ module.exports = {
           seq(
             optional(kw("global")),
             kw("friends"),
-            field("friends", repeat1($.name))
-          )
+            field("friends", repeat1($.name)),
+          ),
         ),
         ".",
         optional($.public_section),
         optional($.protected_section),
         optional($.private_section),
         kw("endclass"),
-        "."
+        ".",
       ),
 
     _create_addition: $ =>
@@ -164,7 +165,7 @@ module.exports = {
         $.constructor_declaration,
         $.method_redefinition,
         alias($.class_method_declaration_class, $.class_method_declaration),
-        $.class_constructor_declaration
+        $.class_constructor_declaration,
       ),
 
     class_implementation: $ =>
@@ -175,7 +176,7 @@ module.exports = {
         ".",
         repeat($.method_implementation),
         kw("endclass"),
-        "."
+        ".",
       ),
 
     method_declaration_class: $ =>
@@ -185,17 +186,17 @@ module.exports = {
         optional(choice(kw("abstract"), kw("final"))),
         field(
           "importing_parameters",
-          optional($._method_declaration_importing)
+          optional($._method_declaration_importing),
         ),
         field(
           "exporting_parameters",
-          optional($._method_declaration_exporting)
+          optional($._method_declaration_exporting),
         ),
         field("changing_parameters", optional($._method_declaration_changing)),
         optional($.returning_parameter),
         field("raising", optional($._method_declaration_raising)),
         field("exceptions", optional($._method_declaration_exceptions)),
-        "."
+        ".",
       ),
 
     _method_declaration_importing: $ =>
@@ -210,7 +211,7 @@ module.exports = {
     _method_declaration_raising: $ =>
       seq(
         kw("raising"),
-        repeat1(choice($.name, seq(kw("resumable"), "(", $.name, ")")))
+        repeat1(choice($.name, seq(kw("resumable"), "(", $.name, ")"))),
       ),
 
     _method_declaration_exceptions: $ => seq(kw("exceptions"), repeat1($.name)),
@@ -220,10 +221,10 @@ module.exports = {
         choice(
           seq(kw("value"), "(", $.name, ")"),
           seq(kw("reference"), "(", $.name, ")"),
-          $._operand
+          $._operand,
         ),
         $._typing,
-        optional(choice(kw("optional"), seq(kw("default"), $.name)))
+        optional(choice(kw("optional"), seq(kw("default"), $.name))),
       ),
 
     returning_parameter: $ =>
@@ -236,11 +237,11 @@ module.exports = {
         optional(kw("final")),
         field(
           "importing_parameters",
-          optional($._method_declaration_importing)
+          optional($._method_declaration_importing),
         ),
         field("raising", optional($._method_declaration_raising)),
         field("exceptions", optional($._method_declaration_exceptions)),
-        "."
+        ".",
       ),
 
     class_constructor_declaration: $ =>
@@ -252,7 +253,7 @@ module.exports = {
         $.name,
         optional(kw("final")),
         kw("redefinition"),
-        "."
+        ".",
       ),
 
     class_method_declaration_class: $ =>
@@ -261,17 +262,17 @@ module.exports = {
         field("name", $.name),
         field(
           "importing_parameters",
-          optional($._method_declaration_importing)
+          optional($._method_declaration_importing),
         ),
         field(
           "exporting_parameters",
-          optional($._method_declaration_exporting)
+          optional($._method_declaration_exporting),
         ),
         field("changing_parameters", optional($._method_declaration_changing)),
         optional($.returning_parameter),
         field("raising", optional($._method_declaration_raising)),
         field("exceptions", optional($._method_declaration_exceptions)),
-        "."
+        ".",
       ),
 
     class_method_declaration_interface: $ =>
@@ -281,17 +282,17 @@ module.exports = {
         optional(seq(kw("default"), choice(kw("ignore"), kw("fail")))),
         field(
           "importing_parameters",
-          optional($._method_declaration_importing)
+          optional($._method_declaration_importing),
         ),
         field(
           "exporting_parameters",
-          optional($._method_declaration_exporting)
+          optional($._method_declaration_exporting),
         ),
         field("changing_parameters", optional($._method_declaration_changing)),
         optional($.returning_parameter),
         field("raising", optional($._method_declaration_raising)),
         field("exceptions", optional($._method_declaration_exceptions)),
-        "."
+        ".",
       ),
 
     method_implementation: $ =>
@@ -301,7 +302,7 @@ module.exports = {
         ".",
         optional($.method_body),
         kw("endmethod"),
-        "."
+        ".",
       ),
 
     method_body: $ => repeat1($._implementation_statement),
@@ -313,7 +314,7 @@ module.exports = {
         kw("definition"),
         kw("deferred"),
         optional(kw("public")),
-        "."
+        ".",
       ),
 
     class_local_friend_publication: $ =>
@@ -324,7 +325,7 @@ module.exports = {
         kw("local"),
         kw("friends"),
         field("friends", repeat1($.name)),
-        "."
+        ".",
       ),
 
     interface_declaration: $ =>
@@ -335,14 +336,14 @@ module.exports = {
         ".",
         repeat($._interface_components),
         kw("endinterface"),
-        "."
+        ".",
       ),
 
     _interface_components: $ =>
       choice(
         $.variable_declaration,
         alias($.method_declaration_interface, $.method_declaration),
-        alias($.class_method_declaration_interface, $.class_method_declaration)
+        alias($.class_method_declaration_interface, $.class_method_declaration),
       ),
 
     method_declaration_interface: $ =>
@@ -352,17 +353,17 @@ module.exports = {
         optional(seq(kw("default"), choice(kw("ignore"), kw("fail")))),
         field(
           "importing_parameters",
-          optional($._method_declaration_importing)
+          optional($._method_declaration_importing),
         ),
         field(
           "exporting_parameters",
-          optional($._method_declaration_exporting)
+          optional($._method_declaration_exporting),
         ),
         field("changing_parameters", optional($._method_declaration_changing)),
         optional($.returning_parameter),
         field("raising", optional($._method_declaration_raising)),
         field("exceptions", optional($._method_declaration_exceptions)),
-        "."
+        ".",
       ),
 
     loop_statement: $ =>
@@ -371,7 +372,7 @@ module.exports = {
         kw("at"),
         field("target", choice($.name, kw("screen"))),
         repeat(choice($.loop_result, $.loop_clause)),
-        "."
+        ".",
       ),
 
     loop_block_statement: $ =>
@@ -384,7 +385,7 @@ module.exports = {
         // FIXME: not all statements are allowed in loop body
         repeat($._statement),
         kw("endloop"),
-        "."
+        ".",
       ),
 
     loop_result: $ =>
@@ -397,7 +398,7 @@ module.exports = {
         $.loop_clause_step,
         $.loop_clause_where,
         $.loop_clause_using_key,
-        $.loop_clause_group_by
+        $.loop_clause_group_by,
       ),
 
     loop_clause_from: $ => seq(kw("from"), $._general_expression_position),
@@ -410,11 +411,14 @@ module.exports = {
 
     loop_clause_using_key: $ => seq(kw("using"), kw("key"), $.name),
 
-    loop_clause_group_by: $ => seq(kw("group"), kw("by"), $._general_expression_position),
+    loop_clause_group_by: $ =>
+      seq(kw("group"), kw("by"), $._general_expression_position),
 
     exit_statement: $ => seq(kw("exit"), "."),
 
     continue_statement: $ => seq(kw("continue"), "."),
+
+    perform_statement: $ => seq(kw("perform"), field("name", $.name), "."),
 
     return_statement: $ => seq(kw("return"), "."),
 
@@ -430,7 +434,7 @@ module.exports = {
         //FIXME: not all statements are allowed in statement_block
         repeat($._statement),
         kw("endif"),
-        "."
+        ".",
       ),
 
     check_statement: $ => seq(kw("check"), $._logical_expression, "."),
@@ -441,20 +445,20 @@ module.exports = {
         prec.right(4, seq(kw("not"), $._logical_expression)),
         prec.left(
           1,
-          seq($._logical_expression, kw("or"), $._logical_expression)
+          seq($._logical_expression, kw("or"), $._logical_expression),
         ),
         prec.left(
           2,
-          seq($._logical_expression, kw("and"), $._logical_expression)
+          seq($._logical_expression, kw("and"), $._logical_expression),
         ),
-        prec.left(5, seq($._operand, kw("is"), kw("initial")))
+        prec.left(5, seq($._operand, kw("is"), kw("initial"))),
       ),
 
     comparison_expression: $ =>
       seq(
         $._general_expression_position,
         choice("=", kw("eq"), "<>", kw("ne")),
-        $._general_expression_position
+        $._general_expression_position,
       ),
 
     _general_expression_position: $ =>
@@ -462,7 +466,7 @@ module.exports = {
         $.numeric_literal,
         $.character_literal,
         $._data_object,
-        $._calculation_expression
+        $._calculation_expression,
       ),
 
     _calculation_expression: $ => choice($.arithmetic_expression),
@@ -474,64 +478,64 @@ module.exports = {
           seq(
             $._general_expression_position,
             "+",
-            $._general_expression_position
-          )
+            $._general_expression_position,
+          ),
         ),
         prec.left(
           1,
           seq(
             $._general_expression_position,
             "-",
-            $._general_expression_position
-          )
+            $._general_expression_position,
+          ),
         ),
         prec.left(
           2,
           seq(
             $._general_expression_position,
             "*",
-            $._general_expression_position
-          )
+            $._general_expression_position,
+          ),
         ),
         prec.left(
           2,
           seq(
             $._general_expression_position,
             "/",
-            $._general_expression_position
-          )
+            $._general_expression_position,
+          ),
         ),
         prec.left(
           2,
           seq(
             $._general_expression_position,
             "DIV",
-            $._general_expression_position
-          )
+            $._general_expression_position,
+          ),
         ),
         prec.left(
           2,
           seq(
             $._general_expression_position,
             "MOD",
-            $._general_expression_position
-          )
+            $._general_expression_position,
+          ),
         ),
         prec.left(
           3,
           seq(
             $._general_expression_position,
             "**",
-            $._general_expression_position
-          )
-        )
+            $._general_expression_position,
+          ),
+        ),
       ),
 
     _writeable_expression: $ =>
       choice(
         // inline declaration
         // constructor expression
-        $.table_expression
+        $.table_expression,
       ),
 
     table_expression: $ =>
@@ -543,12 +547,12 @@ module.exports = {
           "line_spec",
           choice(
             $._general_expression_position,
-            alias($._table_expression_free_key, $.free_key)
+            alias($._table_expression_free_key, $.free_key),
             //alias($._table_expression_table_key, $.table_key)
-          )
+          ),
         ),
         //token.immediate(" ]")
-        "]"
+        "]",
       ),
 
     _table_expression_free_key: $ => repeat1($.comp_spec),
@@ -557,11 +561,10 @@ module.exports = {
       seq(
         field("component", $.name),
         "=",
-        field("operand", $._general_expression_position)
+        field("operand", $._general_expression_position),
       ),
 
-    insert_statement: $ =>
-      seq(kw("insert"), repeat1($.insert_part), "."),
+    insert_statement: $ => seq(kw("insert"), repeat1($.insert_part), "."),
 
     insert_part: $ =>
       choice(
@@ -573,7 +576,7 @@ module.exports = {
         $.insert_table_clause,
         $.insert_accepting_clause,
         $.insert_assigning_clause,
-        $.insert_reference_clause
+        $.insert_reference_clause,
       ),
 
     insert_into_clause: $ => seq(kw("into"), $.name),
@@ -581,7 +584,8 @@ module.exports = {
     insert_into_table_clause: $ =>
       seq(kw("into"), kw("table"), $._general_expression_position),
 
-    insert_values_clause: $ => seq(kw("values"), $._general_expression_position),
+    insert_values_clause: $ =>
+      seq(kw("values"), $._general_expression_position),
 
     insert_from_clause: $ =>
       seq(kw("from"), optional(kw("table")), $._general_expression_position),
@@ -591,14 +595,12 @@ module.exports = {
     insert_accepting_clause: $ =>
       seq(kw("accepting"), kw("duplicate"), kw("keys")),
 
-    insert_assigning_clause: $ =>
-      seq(kw("assigning"), $._data_object),
+    insert_assigning_clause: $ => seq(kw("assigning"), $._data_object),
 
     insert_reference_clause: $ =>
       seq(kw("reference"), kw("into"), $._data_object),
 
-    update_statement: $ =>
-      seq(kw("update"), repeat1($.update_part), "."),
+    update_statement: $ => seq(kw("update"), repeat1($.update_part), "."),
 
     update_part: $ =>
       choice(
@@ -607,7 +609,7 @@ module.exports = {
         $.update_set_clause,
         $.update_where_clause,
         $.update_indicators_clause,
-        $.update_table_clause
+        $.update_table_clause,
       ),
 
     update_from_clause: $ =>
@@ -617,7 +619,7 @@ module.exports = {
       seq(
         kw("set"),
         $._logical_expression,
-        repeat(seq(",", $._logical_expression))
+        repeat(seq(",", $._logical_expression)),
       ),
 
     update_where_clause: $ => seq(kw("where"), $._logical_expression),
@@ -627,31 +629,30 @@ module.exports = {
 
     update_table_clause: $ => seq(kw("table"), $._general_expression_position),
 
-    delete_statement: $ =>
-      seq(kw("delete"), repeat1($.delete_part), "."),
+    delete_statement: $ => seq(kw("delete"), repeat1($.delete_part), "."),
 
     delete_part: $ =>
       choice(
         $._general_expression_position,
         $.delete_from_clause,
         $.delete_where_clause,
-        $.delete_from_table_clause
+        $.delete_from_table_clause,
       ),
 
     delete_from_clause: $ => seq(kw("from"), $._general_expression_position),
 
-    delete_from_table_clause: $ => seq(kw("from"), kw("table"), $._general_expression_position),
+    delete_from_table_clause: $ =>
+      seq(kw("from"), kw("table"), $._general_expression_position),
 
     delete_where_clause: $ => seq(kw("where"), $._logical_expression),
 
-    modify_statement: $ =>
-      seq(kw("modify"), repeat1($.modify_part), "."),
+    modify_statement: $ => seq(kw("modify"), repeat1($.modify_part), "."),
 
     modify_part: $ =>
       choice(
         $._general_expression_position,
         $.modify_from_clause,
-        $.modify_table_clause
+        $.modify_table_clause,
       ),
 
     modify_from_clause: $ =>
@@ -670,17 +671,17 @@ module.exports = {
             $.read_table_index,
             $.read_table_from,
             $.read_table_result,
-            $.read_table_binary_search
-          )
+            $.read_table_binary_search,
+          ),
         ),
-        "."
+        ".",
       ),
 
     read_table_with_key: $ =>
       seq(
         kw("with"),
         kw("key"),
-        repeat1(seq($.name, "=", $._general_expression_position))
+        repeat1(seq($.name, "=", $._general_expression_position)),
       ),
 
     read_table_index: $ => seq(kw("index"), $._general_expression_position),
@@ -693,7 +694,7 @@ module.exports = {
       choice(
         seq(kw("into"), $._data_object),
         seq(kw("assigning"), $._data_object),
-        seq(kw("transporting"), kw("no"), kw("fields"))
+        seq(kw("transporting"), kw("no"), kw("fields")),
       ),
 
     open_dataset_statement: $ =>
@@ -701,21 +702,29 @@ module.exports = {
         kw("open"),
         kw("dataset"),
         repeat1(choice($._data_object, $.open_dataset_for_clause)),
-        "."
+        ".",
       ),
 
     open_dataset_for_clause: $ =>
       seq(
         kw("for"),
-        optional(choice(kw("input"), kw("output"), kw("update"), kw("appending")))
+        optional(
+          choice(kw("input"), kw("output"), kw("update"), kw("appending")),
+        ),
       ),
 
     read_dataset_statement: $ =>
       seq(
         kw("read"),
         kw("dataset"),
-        repeat1(choice($._data_object, $.read_dataset_into_clause, $.read_dataset_length_clause)),
-        "."
+        repeat1(
+          choice(
+            $._data_object,
+            $.read_dataset_into_clause,
+            $.read_dataset_length_clause,
+          ),
+        ),
+        ".",
       ),
 
     read_dataset_into_clause: $ => seq(kw("into"), $._data_object),
@@ -726,13 +735,20 @@ module.exports = {
     transfer_statement: $ =>
       seq(
         kw("transfer"),
-        repeat1(choice($._general_expression_position, $.transfer_to_clause, $.transfer_length_clause)),
-        "."
+        repeat1(
+          choice(
+            $._general_expression_position,
+            $.transfer_to_clause,
+            $.transfer_length_clause,
+          ),
+        ),
+        ".",
       ),
 
     transfer_to_clause: $ => seq(kw("to"), $._data_object),
 
-    transfer_length_clause: $ => seq(kw("length"), $._general_expression_position),
+    transfer_length_clause: $ =>
+      seq(kw("length"), $._general_expression_position),
 
     shift_statement: $ =>
       seq(kw("shift"), repeat1(choice($._data_object, $.mode_clause)), "."),
@@ -745,7 +761,7 @@ module.exports = {
         kw("in"),
         $._data_object,
         repeat(choice($.mode_clause, $.case_clause)),
-        "."
+        ".",
       ),
 
     find_statement: $ =>
@@ -754,7 +770,7 @@ module.exports = {
         $._general_expression_position,
         optional($.find_in_clause),
         repeat(choice($.mode_clause, $.case_clause)),
-        "."
+        ".",
       ),
 
     find_in_clause: $ => seq(kw("in"), $._data_object),
@@ -762,8 +778,14 @@ module.exports = {
     concatenate_statement: $ =>
       seq(
         kw("concatenate"),
-        repeat1(choice($._general_expression_position, $.concatenate_into_clause, $.concatenate_mode_clause)),
-        "."
+        repeat1(
+          choice(
+            $._general_expression_position,
+            $.concatenate_into_clause,
+            $.concatenate_mode_clause,
+          ),
+        ),
+        ".",
       ),
 
     concatenate_into_clause: $ => seq(kw("into"), $._data_object),
@@ -773,8 +795,14 @@ module.exports = {
     collect_statement: $ =>
       seq(
         kw("collect"),
-        repeat1(choice($._general_expression_position, $.collect_into_clause, $.collect_assigning_clause)),
-        "."
+        repeat1(
+          choice(
+            $._general_expression_position,
+            $.collect_into_clause,
+            $.collect_assigning_clause,
+          ),
+        ),
+        ".",
       ),
 
     collect_into_clause: $ => seq(kw("into"), $._data_object),
@@ -786,14 +814,21 @@ module.exports = {
         kw("commit"),
         optional(kw("work")),
         optional(seq(kw("and"), kw("wait"))),
-        "."
+        ".",
       ),
 
     move_corresponding_statement: $ =>
       seq(
         kw("move-corresponding"),
-        repeat1(choice($._data_object, $.move_corresponding_to_clause, $.move_corresponding_expand_clause, $.move_corresponding_keep_clause)),
-        "."
+        repeat1(
+          choice(
+            $._data_object,
+            $.move_corresponding_to_clause,
+            $.move_corresponding_expand_clause,
+            $.move_corresponding_keep_clause,
+          ),
+        ),
+        ".",
       ),
 
     move_corresponding_to_clause: $ => seq(kw("to"), $._data_object),
@@ -807,12 +842,21 @@ module.exports = {
     translate_statement: $ =>
       seq(
         kw("translate"),
-        repeat1(choice($._data_object, $.translate_to_clause, $.translate_using_clause)),
-        "."
+        repeat1(
+          choice(
+            $._data_object,
+            $.translate_to_clause,
+            $.translate_using_clause,
+          ),
+        ),
+        ".",
       ),
 
     translate_to_clause: $ =>
-      seq(kw("to"), choice(seq(kw("upper"), kw("case")), seq(kw("lower"), kw("case")))),
+      seq(
+        kw("to"),
+        choice(seq(kw("upper"), kw("case")), seq(kw("lower"), kw("case"))),
+      ),
 
     translate_using_clause: $ => seq(kw("using"), $._data_object),
 
@@ -821,8 +865,13 @@ module.exports = {
         kw("call"),
         kw("transaction"),
         $.character_literal,
-        repeat(choice($.call_transaction_with_clause, $.call_transaction_without_clause)),
-        "."
+        repeat(
+          choice(
+            $.call_transaction_with_clause,
+            $.call_transaction_without_clause,
+          ),
+        ),
+        ".",
       ),
 
     call_transaction_with_clause: $ =>
@@ -835,8 +884,10 @@ module.exports = {
       seq(
         kw("submit"),
         $.name,
-        repeat(choice($.submit_selection_set_clause, $.submit_selection_sets_clause)),
-        "."
+        repeat(
+          choice($.submit_selection_set_clause, $.submit_selection_sets_clause),
+        ),
+        ".",
       ),
 
     submit_selection_set_clause: $ =>
@@ -848,7 +899,7 @@ module.exports = {
         kw("selection-sets"),
         kw("of"),
         kw("program"),
-        $._data_object
+        $._data_object,
       ),
 
     search_statement: $ =>
@@ -856,7 +907,7 @@ module.exports = {
         kw("search"),
         $._data_object,
         repeat(choice($.search_for_clause, $.mode_clause)),
-        "."
+        ".",
       ),
 
     search_for_clause: $ => seq(kw("for"), $._general_expression_position),
@@ -866,8 +917,14 @@ module.exports = {
         kw("create"),
         kw("data"),
         $.name,
-        repeat(choice($.create_data_type_handle_clause, $.create_data_type_clause, $.create_data_like_clause)),
-        "."
+        repeat(
+          choice(
+            $.create_data_type_handle_clause,
+            $.create_data_type_clause,
+            $.create_data_like_clause,
+          ),
+        ),
+        ".",
       ),
 
     create_data_type_handle_clause: $ =>
@@ -884,7 +941,7 @@ module.exports = {
         kw("id"),
         $.character_literal,
         repeat($.parameter_field_clause),
-        "."
+        ".",
       ),
 
     get_parameter_statement: $ =>
@@ -894,7 +951,7 @@ module.exports = {
         kw("id"),
         $.character_literal,
         repeat($.parameter_field_clause),
-        "."
+        ".",
       ),
 
     parameter_field_clause: $ => seq(kw("field"), $._data_object),
@@ -903,18 +960,21 @@ module.exports = {
       seq(
         kw("in"),
         optional(choice(kw("byte"), kw("character"))),
-        optional(kw("mode"))
+        optional(kw("mode")),
       ),
 
     case_clause: $ =>
-      choice(seq(kw("ignoring"), kw("case")), seq(kw("respecting"), kw("case"))),
+      choice(
+        seq(kw("ignoring"), kw("case")),
+        seq(kw("respecting"), kw("case")),
+      ),
 
     split_statement: $ =>
       seq(
         kw("split"),
         field("source", $._general_expression_position),
         repeat(choice($.split_at_clause, $.split_into_clause)),
-        "."
+        ".",
       ),
 
     split_at_clause: $ => seq(kw("at"), $._general_expression_position),
@@ -922,23 +982,18 @@ module.exports = {
     split_into_clause: $ =>
       choice(
         seq(kw("into"), kw("table"), $._data_object),
-        seq(kw("into"), repeat1($._data_object))
+        seq(kw("into"), repeat1($._data_object)),
       ),
 
     sort_statement: $ =>
-      seq(
-        kw("sort"),
-        field("itab", $.name),
-        repeat($.sort_clause),
-        "."
-      ),
+      seq(kw("sort"), field("itab", $.name), repeat($.sort_clause), "."),
 
     sort_clause: $ =>
       choice(
         $.sort_by_clause,
         $.sort_order_clause,
         $.sort_as_text_clause,
-        $.sort_stable_clause
+        $.sort_stable_clause,
       ),
 
     sort_by_clause: $ => seq(kw("by"), repeat1($.name)),
@@ -957,7 +1012,7 @@ module.exports = {
         field("cursor", $.name),
         optional($.open_cursor_for),
         optional($.open_cursor_hold),
-        "."
+        ".",
       ),
 
     open_cursor_hold: $ => seq(kw("with"), kw("hold")),
@@ -981,7 +1036,7 @@ module.exports = {
         $.field_symbol_name,
         $.structured_data_object,
         $.attribute_access_static,
-        $.inline_declaration
+        $.inline_declaration,
       ),
 
     host_variable: $ => seq("@", $.name),
@@ -989,14 +1044,14 @@ module.exports = {
     structured_data_object: $ =>
       seq(
         alias(choice($.name, $.field_symbol_name), $.structure_name),
-        repeat1(seq(token.immediate("-"), alias($.name, $.component_name)))
+        repeat1(seq(token.immediate("-"), alias($.name, $.component_name))),
       ),
 
     attribute_access_static: $ =>
       seq(
         field("class", $.name),
         token.immediate("=>"),
-        field("attribute", $.name)
+        field("attribute", $.name),
       ),
 
     assignment: $ =>
@@ -1004,7 +1059,7 @@ module.exports = {
         choice($._data_object, $._writeable_expression),
         "=",
         $._general_expression_position,
-        "."
+        ".",
       ),
 
     try_catch_statement: $ =>
@@ -1014,7 +1069,7 @@ module.exports = {
         optional($.try_block),
         repeat($.catch_statement),
         kw("endtry"),
-        "."
+        ".",
       ),
 
     try_block: $ => repeat1($._statement),
@@ -1025,7 +1080,7 @@ module.exports = {
         field("exception", $.name),
         optional(seq(kw("into"), field("oref", $.name))),
         ".",
-        optional($.catch_block)
+        optional($.catch_block),
       ),
 
     catch_block: $ => repeat1($._statement),
@@ -1041,10 +1096,10 @@ module.exports = {
         repeat1(
           choice(
             $._general_expression_position,
-            seq(",", $._general_expression_position)
-          )
+            seq(",", $._general_expression_position),
+          ),
         ),
-        "."
+        ".",
       ),
 
     call_method: $ =>
@@ -1057,12 +1112,12 @@ module.exports = {
             choice(
               $._general_expression_position,
               $.parameter_list,
-              $._explicit_parameter_list
-            )
-          )
+              $._explicit_parameter_list,
+            ),
+          ),
         ),
         ")",
-        "."
+        ".",
       ),
 
     parameter_list: $ => repeat1($.parameter_binding),
@@ -1074,9 +1129,9 @@ module.exports = {
             seq(kw("exporting"), $.parameter_list),
             seq(kw("importing"), $.parameter_list),
             seq(kw("changing"), $.parameter_list),
-            seq(kw("receiving"), $.parameter_binding)
-          )
-        )
+            seq(kw("receiving"), $.parameter_binding),
+          ),
+        ),
       ),
 
     parameter_list_exporting: $ => repeat1($.parameter_binding),
@@ -1085,14 +1140,14 @@ module.exports = {
       seq(
         field("formal_parameter", $.name),
         "=",
-        field("actual_parameter", $._general_expression_position)
+        field("actual_parameter", $._general_expression_position),
       ),
 
     parameter_binding_exporting: $ =>
       seq(
         field("formal_parameter", $.name),
         "=",
-        field("actual_parameter", $.name)
+        field("actual_parameter", $.name),
       ),
 
     call_method_static: $ =>
@@ -1107,12 +1162,12 @@ module.exports = {
             choice(
               $._general_expression_position,
               $.parameter_list,
-              $._explicit_parameter_list
-            )
-          )
+              $._explicit_parameter_list,
+            ),
+          ),
         ),
         ")",
-        "."
+        ".",
       ),
 
     call_method_instance: $ =>
@@ -1127,12 +1182,12 @@ module.exports = {
             choice(
               $._general_expression_position,
               $.parameter_list,
-              $._explicit_parameter_list
-            )
-          )
+              $._explicit_parameter_list,
+            ),
+          ),
         ),
         ")",
-        "."
+        ".",
       ),
 
     call_function: $ =>
@@ -1145,10 +1200,10 @@ module.exports = {
             $.function_parameter_clause,
             $.exception_list,
             $.parameter_table_clause,
-            $.exception_table_clause
-          )
+            $.exception_table_clause,
+          ),
         ),
-        "."
+        ".",
       ),
 
     parameter_table_clause: $ => seq(kw("parameter-table"), $._data_object),
@@ -1157,9 +1212,12 @@ module.exports = {
 
     function_parameter_clause: $ =>
       choice(
-        seq(kw("exporting"), alias($.parameter_list_exporting, $.parameter_list)),
+        seq(
+          kw("exporting"),
+          alias($.parameter_list_exporting, $.parameter_list),
+        ),
         seq(kw("importing"), $.parameter_list),
-        seq(kw("changing"), $.parameter_list)
+        seq(kw("changing"), $.parameter_list),
       ),
 
     exception_list: $ => seq(kw("exceptions"), repeat1($.return_code_binding)),
@@ -1168,7 +1226,7 @@ module.exports = {
       seq(
         field("exception", $.name),
         "=",
-        field("return_code", $.numeric_literal)
+        field("return_code", $.numeric_literal),
       ),
 
     raise_exception_statement: $ =>
@@ -1180,19 +1238,19 @@ module.exports = {
             kw("type"),
             field("class", $.name),
             optional(
-              field("parameters", seq(kw("exporting"), $.parameter_list))
-            )
+              field("parameters", seq(kw("exporting"), $.parameter_list)),
+            ),
           ),
-          field("oref", $.name)
+          field("oref", $.name),
         ),
-        "."
+        ".",
       ),
 
     clear_statement: $ =>
       seq(
         kw("clear"),
         repeat1(choice($._data_object, $.clear_with_clause, $.mode_clause)),
-        "."
+        ".",
       ),
 
     clear_with_clause: $ => seq(kw("with"), $._data_object),
@@ -1200,15 +1258,23 @@ module.exports = {
     append_statement: $ =>
       seq(
         kw("append"),
-        repeat1(choice($._data_object, $.append_to_clause, $.append_assigning_clause, $.append_reference_clause)),
-        "."
+        repeat1(
+          choice(
+            $._data_object,
+            $.append_to_clause,
+            $.append_assigning_clause,
+            $.append_reference_clause,
+          ),
+        ),
+        ".",
       ),
 
     append_to_clause: $ => seq(kw("to"), $._data_object),
 
     append_assigning_clause: $ => seq(kw("assigning"), $._data_object),
 
-    append_reference_clause: $ => seq(kw("reference"), kw("into"), $._data_object),
+    append_reference_clause: $ =>
+      seq(kw("reference"), kw("into"), $._data_object),
 
     create_object_statement: $ =>
       seq(
@@ -1220,10 +1286,10 @@ module.exports = {
             $.create_object_exporting_clause,
             $.create_object_parameter_table_clause,
             $.create_object_exception_table_clause,
-            $.create_object_exceptions_clause
-          )
+            $.create_object_exceptions_clause,
+          ),
         ),
-        "."
+        ".",
       ),
 
     create_object_exporting_clause: $ =>
@@ -1236,23 +1302,26 @@ module.exports = {
       seq(kw("exception-table"), $._data_object),
 
     create_object_exceptions_clause: $ =>
-      seq(kw("exceptions"), repeat1(seq($.name, "=", $._general_expression_position))),
+      seq(
+        kw("exceptions"),
+        repeat1(seq($.name, "=", $._general_expression_position)),
+      ),
 
     include_statement: $ =>
       seq(
         kw("include"),
         choice($.name, $.field_symbol_name),
         optional(seq(kw("if"), kw("found"))),
-        "."
+        ".",
       ),
 
     macro_include: $ =>
       seq(
         field("name", $.name),
         optional(
-          alias(repeat1($._general_expression_position), $.parameter_list)
+          alias(repeat1($._general_expression_position), $.parameter_list),
         ),
-        "."
+        ".",
       ),
 
     //_marco_parameter_list: $ => repeat1($._general_expression_position),
@@ -1264,7 +1333,7 @@ module.exports = {
         ".",
         repeat($._implementation_statement),
         kw("endfunction"),
-        "."
+        ".",
       ),
 
     form_statement: $ =>
@@ -1274,7 +1343,7 @@ module.exports = {
         ".",
         repeat($._implementation_statement),
         kw("endform"),
-        "."
+        ".",
       ),
 
     raise_statement: $ => seq(kw("raise"), $.name, "."),

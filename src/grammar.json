@@ -3373,6 +3373,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "perform_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "report_statement"
         },
         {
@@ -5893,6 +5897,33 @@
           },
           "named": false,
           "value": "continue"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "perform_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "perform",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "perform"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "name"
+          }
         },
         {
           "type": "STRING",
