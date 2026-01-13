@@ -6,9 +6,11 @@
   "types": "bindings/node",
   "scripts": {
     "build:grammar": "node scripts/build_grammar.js",
+    "format": "prettier --write \"grammar/**/*.js\" \"scripts/*.js\" \"grammar.js\" \"grammar/helpers.js\"",
+    "lint": "eslint \"grammar/**/*.js\" \"scripts/*.js\" \"grammar.js\" \"grammar/helpers.js\"",
     "test": "npm run build:grammar && tree-sitter generate && tree-sitter test",
     "install": "node-gyp-build",
-    "build": "npm run build:grammar && tree-sitter generate && tree-sitter build",
+    "build": "npm run format && npm run lint && npm run build:grammar && tree-sitter generate && tree-sitter build",
     "prebuildify": "prebuildify --napi --strip"
   },
   "author": "",

@@ -1,0 +1,18 @@
+{
+  "grammars": [
+    {
+      "name": "abap",
+      "scope": "source.abap",
+      "file-types": [
+        "abap"
+      ],
+      "injection-regex": "^abap$",
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "license": "ISC",
+    "description": "Tree-sitter grammar for ABAP"
+  }
+}
