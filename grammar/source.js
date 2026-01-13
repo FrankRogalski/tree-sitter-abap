@@ -13,6 +13,7 @@ module.exports = {
     [$.select_statement, $.select_loop_statement],
     [$._data_object, $.host_variable],
     [$.loop_statement, $.loop_block_statement],
+    [$.member_access_statement, $.member_access_incomplete],
   ],
 
   rules: {
@@ -69,6 +70,7 @@ module.exports = {
         $.class_method_declaration_class,
         $.assignment,
         $.member_access_statement,
+        $.member_access_incomplete,
         $.select_statement,
         $.select_loop_statement,
         $.insert_statement,
@@ -426,11 +428,19 @@ module.exports = {
     return_statement: $ => seq(kw("return"), "."),
 
     member_access_statement: $ =>
+      prec.right(
+        seq(
+          choice($.name, $.field_symbol_name),
+          token.immediate(choice("->", "=>")),
+          $.name,
+          ".",
+        ),
+      ),
+
+    member_access_incomplete: $ =>
       seq(
         choice($.name, $.field_symbol_name),
         token.immediate(choice("->", "=>")),
-        optional($.name),
-        ".",
       ),
 
     report_statement: $ => seq(kw("report"), $.name, "."),

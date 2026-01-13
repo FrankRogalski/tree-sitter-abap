@@ -3413,6 +3413,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "member_access_incomplete"
+        },
+        {
+          "type": "SYMBOL",
           "name": "select_statement"
         },
         {
@@ -5963,6 +5967,52 @@
       ]
     },
     "member_access_statement": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "name"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "field_symbol_name"
+              }
+            ]
+          },
+          {
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "->"
+                },
+                {
+                  "type": "STRING",
+                  "value": "=>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "SYMBOL",
+            "name": "name"
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          }
+        ]
+      }
+    },
+    "member_access_incomplete": {
       "type": "SEQ",
       "members": [
         {
@@ -5993,22 +6043,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "name"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "."
         }
       ]
     },
@@ -11249,6 +11283,10 @@
     [
       "loop_statement",
       "loop_block_statement"
+    ],
+    [
+      "member_access_statement",
+      "member_access_incomplete"
     ]
   ],
   "precedences": [],

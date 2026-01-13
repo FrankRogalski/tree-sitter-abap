@@ -1,4 +1,4 @@
-const {kw} = require("../helpers");
+const { kw } = require("../helpers");
 
 module.exports = {
   _typing: $ => choice($.generic_typing, $.complete_typing),
@@ -9,7 +9,7 @@ module.exports = {
   complete_typing: $ =>
     choice(
       seq(kw("type"), alias($.name, $.type)),
-      seq(kw("type"), kw("ref"), kw("to"), alias($.name, $.type))
+      seq(kw("type"), kw("ref"), kw("to"), alias($.name, $.type)),
     ),
 
   generic_type: $ => choice(kw("any"), seq(kw("any"), kw("table"))),
@@ -18,7 +18,7 @@ module.exports = {
     choice(
       $._data_object_typing_normal,
       $._data_object_typing_reference,
-      $._data_object_typing_itabs
+      $._data_object_typing_itabs,
     ),
 
   _data_object_typing_normal: $ =>
@@ -27,9 +27,9 @@ module.exports = {
         seq(
           kw("type"),
           optional(seq(kw("line"), kw("of"))),
-          alias($.name, $.type)
+          alias($.name, $.type),
         ),
-        seq(kw("like"), optional(seq(kw("line"), kw("of"))), $._data_object)
+        seq(kw("like"), optional(seq(kw("line"), kw("of"))), $._data_object),
       ),
       optional(
         seq(
@@ -38,21 +38,21 @@ module.exports = {
             $.name,
             $.numeric_literal,
             $.character_literal,
-            seq(kw("is"), kw("initial"))
-          )
-        )
+            seq(kw("is"), kw("initial")),
+          ),
+        ),
       ),
-      optional(kw("read-only"))
+      optional(kw("read-only")),
     ),
 
   _data_object_typing_reference: $ =>
     seq(
       choice(
         seq(kw("type"), kw("ref"), kw("to"), alias($.name, $.type)),
-        seq(kw("like"), kw("ref"), kw("to"), $.name)
+        seq(kw("like"), kw("ref"), kw("to"), $.name),
       ),
       optional(seq(kw("value"), kw("is"), kw("initial"))),
-      optional(kw("read-only"))
+      optional(kw("read-only")),
     ),
 
   _data_object_typing_itabs: $ =>
@@ -64,16 +64,16 @@ module.exports = {
           kw("table"),
           kw("of"),
           optional(seq(kw("ref"), kw("to"))),
-          alias($.name, $.type)
+          alias($.name, $.type),
         ),
         seq(
           kw("like"),
           choice(optional(kw("standard")), kw("sorted"), kw("hashed")),
           kw("table"),
           kw("of"),
-          $.name
-        )
-      )
+          $.name,
+        ),
+      ),
     ),
 
   variable_declaration: $ =>
@@ -81,7 +81,7 @@ module.exports = {
       kw("data"),
       field("name", $.name),
       field("typing", alias($._data_object_typing, $.typing)),
-      "."
+      ".",
     ),
 
   chained_variable_declaration: $ =>
@@ -89,7 +89,7 @@ module.exports = {
       kw("data"),
       ":",
       repeat1(choice($.variable, seq(",", $.variable))),
-      "."
+      ".",
     ),
 
   variable: $ => seq($.name, alias($._data_object_typing, $.typing)),
@@ -99,7 +99,7 @@ module.exports = {
       kw("class-data"),
       field("name", $.name),
       field("typing", alias($._data_object_typing, $.typing)),
-      "."
+      ".",
     ),
 
   chained_class_data_declaration: $ =>
@@ -107,7 +107,7 @@ module.exports = {
       kw("class-data"),
       ":",
       repeat1(choice($.class_data_entry, seq(",", $.class_data_entry))),
-      "."
+      ".",
     ),
 
   class_data_entry: $ => seq($.name, alias($._data_object_typing, $.typing)),
@@ -117,7 +117,7 @@ module.exports = {
       kw("statics"),
       field("name", $.name),
       field("typing", alias($._data_object_typing, $.typing)),
-      "."
+      ".",
     ),
 
   chained_statics_declaration: $ =>
@@ -125,7 +125,7 @@ module.exports = {
       kw("statics"),
       ":",
       repeat1(choice($.static_entry, seq(",", $.static_entry))),
-      "."
+      ".",
     ),
 
   static_entry: $ => seq($.name, alias($._data_object_typing, $.typing)),
@@ -143,7 +143,7 @@ module.exports = {
       kw("end"),
       kw("of"),
       alias($.name, $.strucure_name),
-      "."
+      ".",
     ),
 
   structure_component: $ => seq($.name, $._typing, ","),
@@ -153,7 +153,7 @@ module.exports = {
       kw("constants"),
       field("name", $.name),
       field("typing", alias($._data_object_typing, $.typing)),
-      "."
+      ".",
     ),
 
   chained_constants_declaration: $ =>
@@ -161,7 +161,7 @@ module.exports = {
       kw("constants"),
       ":",
       repeat1(choice($.constant, seq(",", $.constant))),
-      "."
+      ".",
     ),
 
   constant: $ => seq($.name, alias($._data_object_typing, $.typing)),
@@ -171,7 +171,7 @@ module.exports = {
       kw("types"),
       field("name", $.name),
       field("typing", alias($._data_object_typing, $.typing)),
-      "."
+      ".",
     ),
 
   chained_types_declaration: $ =>
@@ -179,7 +179,7 @@ module.exports = {
       kw("types"),
       ":",
       repeat1(choice($.type_entry, seq(",", $.type_entry))),
-      "."
+      ".",
     ),
 
   type_entry: $ => seq($.name, alias($._data_object_typing, $.typing)),
@@ -188,8 +188,10 @@ module.exports = {
     seq(
       kw("types"),
       ":",
-      repeat1(choice($.types_structure_entry, seq(",", $.types_structure_entry))),
-      "."
+      repeat1(
+        choice($.types_structure_entry, seq(",", $.types_structure_entry)),
+      ),
+      ".",
     ),
 
   types_structure_entry: $ =>
@@ -201,7 +203,7 @@ module.exports = {
       alias(repeat1($.structure_component), $.structure_components),
       kw("end"),
       kw("of"),
-      alias($.name, $.strucure_name)
+      alias($.name, $.strucure_name),
     ),
 
   field_symbol_declaration: $ =>
@@ -209,7 +211,7 @@ module.exports = {
       kw("field-symbols"),
       alias($.field_symbol_name, $.name),
       $._typing,
-      "."
+      ".",
     ),
 
   chained_field_symbol_declaration: $ =>
@@ -217,7 +219,7 @@ module.exports = {
       kw("field-symbols"),
       ":",
       repeat1(choice($.field_symbol, seq(",", $.field_symbol))),
-      "."
+      ".",
     ),
 
   field_symbol: $ => seq(alias($.field_symbol_name, $.name), $._typing),
@@ -227,7 +229,7 @@ module.exports = {
       kw("parameters"),
       field("name", $.name),
       field("typing", alias($._data_object_typing, $.typing)),
-      "."
+      ".",
     ),
 
   chained_parameters_declaration: $ =>
@@ -235,24 +237,19 @@ module.exports = {
       kw("parameters"),
       ":",
       repeat1(choice($.parameter_entry, seq(",", $.parameter_entry))),
-      "."
+      ".",
     ),
 
   parameter_entry: $ => seq($.name, alias($._data_object_typing, $.typing)),
 
-  events_declaration: $ =>
-    seq(
-      kw("events"),
-      field("name", $.name),
-      "."
-    ),
+  events_declaration: $ => seq(kw("events"), field("name", $.name), "."),
 
   chained_events_declaration: $ =>
     seq(
       kw("events"),
       ":",
       repeat1(choice($.event_entry, seq(",", $.event_entry))),
-      "."
+      ".",
     ),
 
   event_entry: $ => $.name,
@@ -263,7 +260,7 @@ module.exports = {
       field("name", $.name),
       kw("for"),
       field("target", $._data_object),
-      "."
+      ".",
     ),
 
   chained_aliases_declaration: $ =>
@@ -271,7 +268,7 @@ module.exports = {
       kw("aliases"),
       ":",
       repeat1(choice($.alias_entry, seq(",", $.alias_entry))),
-      "."
+      ".",
     ),
 
   alias_entry: $ => seq($.name, kw("for"), $._data_object),
@@ -282,7 +279,7 @@ module.exports = {
       field("name", $.name),
       kw("for"),
       field("target", $._data_object),
-      "."
+      ".",
     ),
 
   chained_select_options_declaration: $ =>
@@ -290,7 +287,7 @@ module.exports = {
       kw("select-options"),
       ":",
       repeat1(choice($.select_option_entry, seq(",", $.select_option_entry))),
-      "."
+      ".",
     ),
 
   select_option_entry: $ => seq($.name, kw("for"), $._data_object),
