@@ -44,6 +44,9 @@ module.exports = {
       $.report_statement,
       $.program_statement,
       $.if_statement,
+      $.case_statement,
+      $.do_statement,
+      $.while_statement,
       $.return_statement,
       $.check_statement,
       $.method_declaration_class,
@@ -399,7 +402,57 @@ module.exports = {
       ".",
       //FIXME: not all statements are allowed in statement_block
       repeat($._statement),
+      repeat($.elseif_block),
+      optional($.else_block),
       kw("endif"),
+      ".",
+    ),
+
+  elseif_block: $ =>
+    seq(kw("elseif"), $._logical_expression, ".", repeat($._statement)),
+
+  else_block: $ => seq(kw("else"), ".", repeat($._statement)),
+
+  case_statement: $ =>
+    seq(
+      kw("case"),
+      optional(kw("type")),
+      $._general_expression_position,
+      ".",
+      repeat1($.case_when),
+      optional($.case_when_others),
+      kw("endcase"),
+      ".",
+    ),
+
+  case_when: $ =>
+    seq(
+      kw("when"),
+      choice($._general_expression_position, seq(kw("type"), $.name)),
+      ".",
+      repeat($._statement),
+    ),
+
+  case_when_others: $ =>
+    seq(kw("when"), kw("others"), ".", repeat($._statement)),
+
+  do_statement: $ =>
+    seq(
+      kw("do"),
+      optional(seq($._general_expression_position, kw("times"))),
+      ".",
+      repeat($._statement),
+      kw("enddo"),
+      ".",
+    ),
+
+  while_statement: $ =>
+    seq(
+      kw("while"),
+      $._logical_expression,
+      ".",
+      repeat($._statement),
+      kw("endwhile"),
       ".",
     ),
 
