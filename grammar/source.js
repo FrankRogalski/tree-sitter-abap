@@ -1079,8 +1079,7 @@ module.exports = {
         )
       ),
 
-    parameter_list_exporting: $ =>
-      repeat1(alias($.parameter_binding_exporting, $.parameter_binding)),
+    parameter_list_exporting: $ => repeat1($.parameter_binding),
 
     parameter_binding: $ =>
       seq(

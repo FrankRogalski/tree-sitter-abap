@@ -10010,13 +10010,8 @@
     "parameter_list_exporting": {
       "type": "REPEAT1",
       "content": {
-        "type": "ALIAS",
-        "content": {
-          "type": "SYMBOL",
-          "name": "parameter_binding_exporting"
-        },
-        "named": true,
-        "value": "parameter_binding"
+        "type": "SYMBOL",
+        "name": "parameter_binding"
       }
     },
     "parameter_binding": {
