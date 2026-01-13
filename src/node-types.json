@@ -1952,7 +1952,17 @@
   {
     "type": "concatenate_mode_clause",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "mode_clause",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "concatenate_statement",
@@ -4048,6 +4058,53 @@
     }
   },
   {
+    "type": "insert_into_table_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "insert_part",
     "named": true,
     "fields": {},
@@ -4093,6 +4150,10 @@
         },
         {
           "type": "insert_into_clause",
+          "named": true
+        },
+        {
+          "type": "insert_into_table_clause",
           "named": true
         },
         {
@@ -4667,6 +4728,10 @@
           "named": true
         },
         {
+          "type": "loop_clause_group_by",
+          "named": true
+        },
+        {
           "type": "loop_clause_step",
           "named": true
         },
@@ -4687,6 +4752,53 @@
   },
   {
     "type": "loop_clause_from",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop_clause_group_by",
     "named": true,
     "fields": {},
     "children": {
@@ -5610,6 +5722,11 @@
     "fields": {}
   },
   {
+    "type": "move_corresponding_keep_clause",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "move_corresponding_statement",
     "named": true,
     "fields": {},
@@ -5635,6 +5752,10 @@
         },
         {
           "type": "move_corresponding_expand_clause",
+          "named": true
+        },
+        {
+          "type": "move_corresponding_keep_clause",
           "named": true
         },
         {
@@ -10316,6 +10437,10 @@
     "named": false
   },
   {
+    "type": "keeping",
+    "named": false
+  },
+  {
     "type": "key",
     "named": false
   },
@@ -10337,6 +10462,10 @@
   },
   {
     "type": "line",
+    "named": false
+  },
+  {
+    "type": "lines",
     "named": false
   },
   {
@@ -10653,6 +10782,10 @@
   },
   {
     "type": "tables",
+    "named": false
+  },
+  {
+    "type": "target",
     "named": false
   },
   {

@@ -396,7 +396,8 @@ module.exports = {
         $.loop_clause_to,
         $.loop_clause_step,
         $.loop_clause_where,
-        $.loop_clause_using_key
+        $.loop_clause_using_key,
+        $.loop_clause_group_by
       ),
 
     loop_clause_from: $ => seq(kw("from"), $._general_expression_position),
@@ -408,6 +409,8 @@ module.exports = {
     loop_clause_where: $ => seq(kw("where"), $._logical_expression),
 
     loop_clause_using_key: $ => seq(kw("using"), kw("key"), $.name),
+
+    loop_clause_group_by: $ => seq(kw("group"), kw("by"), $._general_expression_position),
 
     exit_statement: $ => seq(kw("exit"), "."),
 
@@ -564,6 +567,7 @@ module.exports = {
       choice(
         $._general_expression_position,
         $.insert_into_clause,
+        $.insert_into_table_clause,
         $.insert_values_clause,
         $.insert_from_clause,
         $.insert_table_clause,
@@ -573,6 +577,9 @@ module.exports = {
       ),
 
     insert_into_clause: $ => seq(kw("into"), $.name),
+
+    insert_into_table_clause: $ =>
+      seq(kw("into"), kw("table"), $._general_expression_position),
 
     insert_values_clause: $ => seq(kw("values"), $._general_expression_position),
 
@@ -700,7 +707,7 @@ module.exports = {
     open_dataset_for_clause: $ =>
       seq(
         kw("for"),
-        optional(choice(kw("input"), kw("output"), kw("update")))
+        optional(choice(kw("input"), kw("output"), kw("update"), kw("appending")))
       ),
 
     read_dataset_statement: $ =>
@@ -759,8 +766,7 @@ module.exports = {
 
     concatenate_into_clause: $ => seq(kw("into"), $._data_object),
 
-    concatenate_mode_clause: $ =>
-      seq(kw("in"), choice(seq(kw("byte"), kw("mode")), seq(kw("character"), kw("mode")))),
+    concatenate_mode_clause: $ => $.mode_clause,
 
     collect_statement: $ =>
       seq(
@@ -784,7 +790,7 @@ module.exports = {
     move_corresponding_statement: $ =>
       seq(
         kw("move-corresponding"),
-        repeat1(choice($._data_object, $.move_corresponding_to_clause, $.move_corresponding_expand_clause)),
+        repeat1(choice($._data_object, $.move_corresponding_to_clause, $.move_corresponding_expand_clause, $.move_corresponding_keep_clause)),
         "."
       ),
 
@@ -792,6 +798,9 @@ module.exports = {
 
     move_corresponding_expand_clause: $ =>
       seq(kw("expanding"), kw("nested"), kw("tables")),
+
+    move_corresponding_keep_clause: $ =>
+      seq(kw("keeping"), kw("target"), kw("lines")),
 
     translate_statement: $ =>
       seq(
@@ -891,7 +900,8 @@ module.exports = {
     mode_clause: $ =>
       seq(
         kw("in"),
-        choice(seq(kw("byte"), kw("mode")), seq(kw("character"), kw("mode")))
+        optional(choice(kw("byte"), kw("character"))),
+        optional(kw("mode"))
       ),
 
     case_clause: $ =>
