@@ -7849,39 +7849,7 @@
       "required": true,
       "types": [
         {
-          "type": "arithmetic_expression",
-          "named": true
-        },
-        {
-          "type": "attribute_access_static",
-          "named": true
-        },
-        {
-          "type": "character_literal",
-          "named": true
-        },
-        {
-          "type": "field_symbol_name",
-          "named": true
-        },
-        {
-          "type": "host_variable",
-          "named": true
-        },
-        {
-          "type": "inline_declaration",
-          "named": true
-        },
-        {
-          "type": "name",
-          "named": true
-        },
-        {
-          "type": "numeric_literal",
-          "named": true
-        },
-        {
-          "type": "structured_data_object",
+          "type": "loop_group_by_spec",
           "named": true
         }
       ]
@@ -8010,6 +7978,104 @@
         },
         {
           "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop_group_by_component",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "loop_group_by_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arithmetic_expression",
+          "named": true
+        },
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "character_literal",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "loop_group_by_component",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "numeric_literal",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
           "named": true
         }
       ]
@@ -14293,6 +14359,10 @@
   },
   {
     "type": "maximum",
+    "named": false
+  },
+  {
+    "type": "members",
     "named": false
   },
   {

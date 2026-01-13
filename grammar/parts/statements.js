@@ -366,7 +366,22 @@ module.exports = {
   loop_clause_using_key: $ => seq(kw("using"), kw("key"), $.name),
 
   loop_clause_group_by: $ =>
-    seq(kw("group"), kw("by"), $._general_expression_position),
+    seq(
+      kw("group"),
+      kw("by"),
+      $.loop_group_by_spec,
+      optional(choice(kw("ascending"), kw("descending"))),
+      optional(seq(kw("without"), kw("members"))),
+    ),
+
+  loop_group_by_spec: $ =>
+    choice(
+      $._general_expression_position,
+      seq("(", repeat1($.loop_group_by_component), ")"),
+    ),
+
+  loop_group_by_component: $ =>
+    seq($.name, "=", $._general_expression_position),
 
   exit_statement: $ => seq(kw("exit"), "."),
 
