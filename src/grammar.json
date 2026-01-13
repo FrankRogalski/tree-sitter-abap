@@ -3401,6 +3401,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "at_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "on_change_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "return_statement"
         },
         {
@@ -6007,6 +6015,186 @@
         {
           "type": "SYMBOL",
           "name": "_general_expression_position"
+        }
+      ]
+    },
+    "at_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "at",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "at"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "first",
+                "flags": "i"
+              },
+              "named": false,
+              "value": "first"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "last",
+                "flags": "i"
+              },
+              "named": false,
+              "value": "last"
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "new",
+                    "flags": "i"
+                  },
+                  "named": false,
+                  "value": "new"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "name"
+                }
+              ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "end",
+                    "flags": "i"
+                  },
+                  "named": false,
+                  "value": "end"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "of",
+                    "flags": "i"
+                  },
+                  "named": false,
+                  "value": "of"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "name"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statement"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "endat",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "endat"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "on_change_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "on",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "on"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "change",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "change"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "of",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "of"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "name"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statement"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "endon",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "endon"
+        },
+        {
+          "type": "STRING",
+          "value": "."
         }
       ]
     },

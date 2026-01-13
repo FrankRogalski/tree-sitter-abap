@@ -47,6 +47,8 @@ module.exports = {
       $.case_statement,
       $.do_statement,
       $.while_statement,
+      $.at_statement,
+      $.on_change_statement,
       $.return_statement,
       $.check_statement,
       $.method_declaration_class,
@@ -382,6 +384,33 @@ module.exports = {
 
   loop_group_by_component: $ =>
     seq($.name, "=", $._general_expression_position),
+
+  at_statement: $ =>
+    seq(
+      kw("at"),
+      choice(
+        kw("first"),
+        kw("last"),
+        seq(kw("new"), $.name),
+        seq(kw("end"), kw("of"), $.name),
+      ),
+      ".",
+      repeat($._statement),
+      kw("endat"),
+      ".",
+    ),
+
+  on_change_statement: $ =>
+    seq(
+      kw("on"),
+      kw("change"),
+      kw("of"),
+      repeat1($.name),
+      ".",
+      repeat($._statement),
+      kw("endon"),
+      ".",
+    ),
 
   exit_statement: $ => seq(kw("exit"), "."),
 
