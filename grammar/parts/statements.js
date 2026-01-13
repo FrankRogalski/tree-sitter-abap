@@ -505,7 +505,11 @@ module.exports = {
   case_when: $ =>
     seq(
       kw("when"),
-      choice($._general_expression_position, seq(kw("type"), $.name)),
+      choice(
+        $._general_expression_position,
+        seq(kw("type"), $.name),
+        seq(kw("type"), kw("of"), $.name),
+      ),
       ".",
       repeat($._statement),
     ),

@@ -6881,6 +6881,35 @@
                   "name": "name"
                 }
               ]
+            },
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "type",
+                    "flags": "i"
+                  },
+                  "named": false,
+                  "value": "type"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "of",
+                    "flags": "i"
+                  },
+                  "named": false,
+                  "value": "of"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "name"
+                }
+              ]
             }
           ]
         },
