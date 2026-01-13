@@ -14,6 +14,9 @@ module.exports = {
     [$._data_object, $.host_variable],
     [$.loop_statement, $.loop_block_statement],
     [$.member_access_statement, $.member_access_incomplete],
+    [$.try_block],
+    [$.catch_statement],
+    [$.catch_block],
   ],
 
   rules: {

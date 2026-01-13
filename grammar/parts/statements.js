@@ -96,6 +96,7 @@ module.exports = {
       $.macro_include,
       $.raise_statement,
       $.form_statement,
+      $.catch_system_exceptions_statement,
     ),
 
   class_declaration: $ =>
@@ -1076,6 +1077,7 @@ module.exports = {
       ".",
       optional($.try_block),
       repeat($.catch_statement),
+      optional($.cleanup_block),
       kw("endtry"),
       ".",
     ),
@@ -1085,13 +1087,29 @@ module.exports = {
   catch_statement: $ =>
     seq(
       kw("catch"),
-      field("exception", $.name),
+      field("exception", repeat1($.name)),
       optional(seq(kw("into"), field("oref", $.name))),
       ".",
       optional($.catch_block),
     ),
 
   catch_block: $ => repeat1($._statement),
+
+  cleanup_block: $ => seq(kw("cleanup"), ".", repeat($._statement)),
+
+  catch_system_exceptions_statement: $ =>
+    seq(
+      kw("catch"),
+      kw("system-exceptions"),
+      repeat1($.system_exception_binding),
+      ".",
+      repeat($._statement),
+      kw("endcatch"),
+      ".",
+    ),
+
+  system_exception_binding: $ =>
+    seq($.name, "=", $._general_expression_position),
 
   write_statement: $ =>
     seq(kw("write"), optional("/"), $._general_expression_position, "."),

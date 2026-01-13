@@ -3594,6 +3594,10 @@
         {
           "type": "SYMBOL",
           "name": "form_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "catch_system_exceptions_statement"
         }
       ]
     },
@@ -10149,6 +10153,18 @@
           }
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "cleanup_block"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
@@ -10188,8 +10204,11 @@
           "type": "FIELD",
           "name": "exception",
           "content": {
-            "type": "SYMBOL",
-            "name": "name"
+            "type": "REPEAT1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "name"
+            }
           }
         },
         {
@@ -10247,6 +10266,106 @@
         "type": "SYMBOL",
         "name": "_statement"
       }
+    },
+    "cleanup_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "cleanup",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "cleanup"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statement"
+          }
+        }
+      ]
+    },
+    "catch_system_exceptions_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "catch",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "catch"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "system-exceptions",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "system-exceptions"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "system_exception_binding"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statement"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "endcatch",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "endcatch"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        }
+      ]
+    },
+    "system_exception_binding": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "name"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_general_expression_position"
+        }
+      ]
     },
     "write_statement": {
       "type": "SEQ",
@@ -11649,6 +11768,15 @@
     [
       "member_access_statement",
       "member_access_incomplete"
+    ],
+    [
+      "try_block"
+    ],
+    [
+      "catch_statement"
+    ],
+    [
+      "catch_block"
     ]
   ],
   "precedences": [],
