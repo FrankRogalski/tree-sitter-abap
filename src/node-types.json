@@ -2751,6 +2751,41 @@
     }
   },
   {
+    "type": "find_in_clause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_access_static",
+          "named": true
+        },
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "host_variable",
+          "named": true
+        },
+        {
+          "type": "inline_declaration",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "structured_data_object",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "find_statement",
     "named": true,
     "fields": {},
@@ -2776,6 +2811,10 @@
         },
         {
           "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "find_in_clause",
           "named": true
         },
         {

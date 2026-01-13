@@ -752,10 +752,12 @@ module.exports = {
       seq(
         kw("find"),
         $._general_expression_position,
-        optional(seq(kw("in"), $._data_object)),
+        optional($.find_in_clause),
         repeat(choice($.mode_clause, $.case_clause)),
         "."
       ),
+
+    find_in_clause: $ => seq(kw("in"), $._data_object),
 
     concatenate_statement: $ =>
       seq(

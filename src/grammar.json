@@ -7846,23 +7846,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "ALIAS",
-                  "content": {
-                    "type": "PATTERN",
-                    "value": "in",
-                    "flags": "i"
-                  },
-                  "named": false,
-                  "value": "in"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_data_object"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "find_in_clause"
             },
             {
               "type": "BLANK"
@@ -7888,6 +7873,25 @@
         {
           "type": "STRING",
           "value": "."
+        }
+      ]
+    },
+    "find_in_clause": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "in",
+            "flags": "i"
+          },
+          "named": false,
+          "value": "in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_data_object"
         }
       ]
     },
