@@ -813,6 +813,10 @@
           "named": true
         },
         {
+          "type": "class_method_declaration_class",
+          "named": true
+        },
+        {
           "type": "class_publication",
           "named": true
         },
@@ -906,6 +910,14 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "member_access_statement",
+          "named": true
+        },
+        {
+          "type": "method_declaration_class",
           "named": true
         },
         {
@@ -1468,6 +1480,114 @@
   },
   {
     "type": "class_method_declaration",
+    "named": true,
+    "fields": {
+      "changing_parameters": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "changing",
+            "named": false
+          },
+          {
+            "type": "method_parameters",
+            "named": true
+          }
+        ]
+      },
+      "exceptions": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "exceptions",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "exporting_parameters": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "exporting",
+            "named": false
+          },
+          {
+            "type": "method_parameters",
+            "named": true
+          }
+        ]
+      },
+      "importing_parameters": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "importing",
+            "named": false
+          },
+          {
+            "type": "method_parameters",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "raising": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "raising",
+            "named": false
+          },
+          {
+            "type": "resumable",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "returning_parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "class_method_declaration_class",
     "named": true,
     "fields": {
       "changing_parameters": {
@@ -2956,6 +3076,10 @@
           "named": true
         },
         {
+          "type": "class_method_declaration_class",
+          "named": true
+        },
+        {
           "type": "clear_statement",
           "named": true
         },
@@ -3037,6 +3161,14 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "member_access_statement",
+          "named": true
+        },
+        {
+          "type": "method_declaration_class",
           "named": true
         },
         {
@@ -3293,6 +3425,10 @@
           "named": true
         },
         {
+          "type": "class_method_declaration_class",
+          "named": true
+        },
+        {
           "type": "clear_statement",
           "named": true
         },
@@ -3374,6 +3510,14 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "member_access_statement",
+          "named": true
+        },
+        {
+          "type": "method_declaration_class",
           "named": true
         },
         {
@@ -3689,6 +3833,10 @@
           "named": true
         },
         {
+          "type": "class_method_declaration_class",
+          "named": true
+        },
+        {
           "type": "class_publication",
           "named": true
         },
@@ -3786,6 +3934,14 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "member_access_statement",
+          "named": true
+        },
+        {
+          "type": "method_declaration_class",
           "named": true
         },
         {
@@ -4540,6 +4696,10 @@
           "named": true
         },
         {
+          "type": "class_method_declaration_class",
+          "named": true
+        },
+        {
           "type": "class_publication",
           "named": true
         },
@@ -4641,6 +4801,14 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "member_access_statement",
+          "named": true
+        },
+        {
+          "type": "method_declaration_class",
           "named": true
         },
         {
@@ -5128,6 +5296,25 @@
     }
   },
   {
+    "type": "member_access_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "field_symbol_name",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "method_body",
     "named": true,
     "fields": {},
@@ -5224,6 +5411,10 @@
           "named": true
         },
         {
+          "type": "class_method_declaration_class",
+          "named": true
+        },
+        {
           "type": "clear_statement",
           "named": true
         },
@@ -5305,6 +5496,14 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "member_access_statement",
+          "named": true
+        },
+        {
+          "type": "method_declaration_class",
           "named": true
         },
         {
@@ -5440,6 +5639,114 @@
   },
   {
     "type": "method_declaration",
+    "named": true,
+    "fields": {
+      "changing_parameters": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "changing",
+            "named": false
+          },
+          {
+            "type": "method_parameters",
+            "named": true
+          }
+        ]
+      },
+      "exceptions": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "exceptions",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "exporting_parameters": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "exporting",
+            "named": false
+          },
+          {
+            "type": "method_parameters",
+            "named": true
+          }
+        ]
+      },
+      "importing_parameters": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "importing",
+            "named": false
+          },
+          {
+            "type": "method_parameters",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "name",
+            "named": true
+          }
+        ]
+      },
+      "raising": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "name",
+            "named": true
+          },
+          {
+            "type": "raising",
+            "named": false
+          },
+          {
+            "type": "resumable",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "returning_parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "method_declaration_class",
     "named": true,
     "fields": {
       "changing_parameters": {
@@ -6382,6 +6689,10 @@
           "named": true
         },
         {
+          "type": "class_method_declaration_class",
+          "named": true
+        },
+        {
           "type": "class_publication",
           "named": true
         },
@@ -6475,6 +6786,14 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "member_access_statement",
+          "named": true
+        },
+        {
+          "type": "method_declaration_class",
           "named": true
         },
         {
@@ -7540,6 +7859,10 @@
           "named": true
         },
         {
+          "type": "class_method_declaration_class",
+          "named": true
+        },
+        {
           "type": "clear_statement",
           "named": true
         },
@@ -7621,6 +7944,14 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "member_access_statement",
+          "named": true
+        },
+        {
+          "type": "method_declaration_class",
           "named": true
         },
         {
@@ -9283,6 +9614,10 @@
           "named": true
         },
         {
+          "type": "class_method_declaration_class",
+          "named": true
+        },
+        {
           "type": "class_publication",
           "named": true
         },
@@ -9376,6 +9711,14 @@
         },
         {
           "type": "macro_include",
+          "named": true
+        },
+        {
+          "type": "member_access_statement",
+          "named": true
+        },
+        {
+          "type": "method_declaration_class",
           "named": true
         },
         {

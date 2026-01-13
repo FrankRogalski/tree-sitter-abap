@@ -65,7 +65,10 @@ module.exports = {
         $.if_statement,
         $.return_statement,
         $.check_statement,
+        $.method_declaration_class,
+        $.class_method_declaration_class,
         $.assignment,
+        $.member_access_statement,
         $.select_statement,
         $.select_loop_statement,
         $.insert_statement,
@@ -421,6 +424,14 @@ module.exports = {
     perform_statement: $ => seq(kw("perform"), field("name", $.name), "."),
 
     return_statement: $ => seq(kw("return"), "."),
+
+    member_access_statement: $ =>
+      seq(
+        choice($.name, $.field_symbol_name),
+        token.immediate(choice("->", "=>")),
+        optional($.name),
+        ".",
+      ),
 
     report_statement: $ => seq(kw("report"), $.name, "."),
 
